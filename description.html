@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .navigation_one {
+            display: flex;
+            /* max-width: 1200px; */
+            width: 100%;
+            margin: auto;
+            justify-content: space-between;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            background-color: #ffc42a;
+            padding: 10px;
+        }
+
+        .navigation_one_tracking {
+            display: flex;
+        }
+
+        .navigation_one .sign-up a {
+            display: inline-block;
+            text-decoration: dotted;
+        }
+
+        .navigation_one h4 {
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .navigation_one a {
+            font-size: 12px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .navigation_one p {
+            font-size: 13px;
+        }
+
+        .navigation_one_tracking a,
+        span,
+        i {
+            margin-left: 8px;
+        }
+
+        .navigation_one_tracking i {
+            font-size: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #1c8057;
+            line-height: 30px;
+        }
+
+        .location .location-name {
+            display: block;
+            color: #ffeac7;
+            transform: translateY(30px);
+        }
+
+        .location select {
+            transform: translateY(-15px);
+            border: none;
+            font-size: 10px;
+            background: transparent;
+            outline: none;
+        }
+
+        .search-container {
+            width: 450px;
+            padding: 8px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #5fc393;
+        }
+
+        .search-container select,
+        .search-container input {
+            border: none;
+            padding: 8px;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-container input::placeholder {
+            color: white;
+        }
+
+        .search-container button {
+            border: none;
+            background: none;
+        }
+
+        .search-container button i {
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-icons .icon-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .nav-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-icons .icon-btn i {
+            font-size: 15px;
+            color: white;
+            background: transparent;
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1c8057;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: white;
+            margin: 0 25px;
+            font-size: 15px;
+        }
+
+        .browse-btn {
+            background-color: #ffc42a;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .recently-view {
+            margin-left: 20px;
+            color: #ffc42a;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .dropdown {
+            position: relative;
+            /* display: inline-block; */
+        }
+
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 25px;
+            left: -15px;
+            width: 180px;
+            border-radius: 5px;
+            background-color: #1c8057;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 100;
+
+        }
+
+        .dropdown:hover .dropdown-list {
+            display: block;
+        }
+
+        .dropdown-list a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: white;
+            background-color: transparent;
+        }
+
+        .dropdown-list a:hover {
+            background-color: grey;
+        }
+
+        /* navbar style end */
+        /* hero section styling */
+        .hero {
+            background-color: #fef2d3;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .hero p {
+            color: #555;
+        }
+
+        .cart-section-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* description styling */
+        .product-details-column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            border: 1px solid #ccc;
+            background: #fff;
+            width: 90%;
+            margin: auto;
+        }
+
+        .product-details-left-column {
+            width: 80%;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .product-details-left-column img {
+            width: 100%;
+        }
+
+        .category {
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .price .small {
+            text-decoration: line-through;
+            color: gray;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .quantity-section {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 999px;
+            /* Pill shape */
+            overflow: hidden;
+            width: fit-content;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .quantity-section button {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: none;
+            font-size: 22px;
+            color: #007a5c;
+            cursor: pointer;
+            border-right: 1px solid black;
+            transition: background 0.3s ease;
+        }
+
+        .quantity-section .quantity-increase {
+            border-left: 1px solid black;
+        }
+
+        .quantity-section button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .quantity-section span {
+            width: 40px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sku {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tags {
+            margin-bottom: 10px;
+        }
+
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .add-cart {
+            padding: 10px 20px;
+            background: #008e64;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .buy-now {
+            padding: 10px 20px;
+            background: #ffc107;
+            color: black;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .share i {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* tab section styling */
+        .product-tab {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #FFD700, #999);
+            margin-right: 10px;
+            border: 2px solid #444;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 19px;
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #222;
+            border-radius: 2px;
+        }
+
+        .tab-content-desc p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .tab-content-desc ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="navigation_one">
+            <div>
+                <p>Call us : +91996576569</p>
+            </div>
+            <div class="sign-up">
+                <h4>Sign Up and Get 50% OFF for first order.</h4>
+                <a href="#">Sign up now</a>
+            </div>
+            <div class="navigation_one_tracking">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">Deliver to<span>411017</span></a>
+                </div>
+                <span>|</span>
+                <div>
+                    <i class="fa fa-truck"></i>
+                    <a href="#">Track your order</a>
+                </div>
+                <span>|</span>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">All Offers</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header class="navbar">
+        <div class="logo">
+            <img src="">
+        </div>
+
+        <div class="location">
+
+            <label class="location-name">Location</label><br>
+            <!-- <i class="fa fa-truck"></i> -->
+            <select>
+
+                <option>Tirunelveli,Tamilnadu</option>
+                <option>Trichy,Tamilnadu</option>
+                <option>Kanjipuram,Tamilnadu</option>
+                <option>Cuddalur,Tamilnadu</option>
+            </select>
+
+        </div>
+        <div class="search-container">
+            <select class="category-select">
+                <option>All Categories</option>
+                <option>Fruits</option>
+                <option>Vegetables</option>
+                <option>Beverages</option>
+            </select>
+            <input type="text" placeholder="Search for products">
+            <button><i class='bx bx-search'></i></i></button>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
+                <span id="cart-count">0</span>
+
+            </button>
+            <button class="icon-btn"><i class="fas fa-user"></i></button>
+        </div>
+    </header>
+    <nav class="main-menu">
+        <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetable.html">Vegetables</a>
+        <a href="#">Beverages</a>
+        <div class="dropdown">
+            <a href="#">About us </a>
+            <div class="dropdown-list">
+                <a href="">Contact Us</a>
+                <a href="">FAQ</a>
+            </div>
+        </div>
+
+        <a href="#">Blogs</a>
+        <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
+    </nav>
+
+    <!-- navbar section end -->
+    <!-- hero section -->
+    <section class="hero">
+        <h1>shopping cart</h1>
+        <p>Home / shop / Product Details</p>
+    </section>
+    <!-- product details section -->
+    <section class="product-details">
+
+    </section>
+
+    <script>
+        if (!localStorage.getItem("cart")) {
+    localStorage.setItem("cart", JSON.stringify([]));
+}
+let currentProductName = "";
+let quantitycount = 1;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const product = JSON.parse(localStorage.getItem("selectedProduct"));
+            const section = document.querySelector(".product-details");
+
+            if (product && section) {
+                currentProductName=product.name;
+                section.innerHTML = `
+                <div class="product-details-column">
+                    <div class="product-details-left-column">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-details-right-column">
+                        <p class="category">${product.category}</p>
+                        <h3 class="title">${product.name}</h3>
+                        <div class="rating">
+                            <h3>⭐⭐⭐⭐⭐ ${product.rating}</h3>
+                        </div>
+                        <div class="price">
+                            <span>&#8377; ${product.originalPrice}</span>
+                            <small>&#8377; ${product.price}</small>
+                        </div>
+                        <div class="quantity-section">
+      <button class="quantity1">-</button> 
+    <span id="quantity-value">${quantitycount}</span>
+      <button class="quantity2">+</button>
+                        </div>
+                        <div class="actions">
+                            <button class="add-cart">Add To Cart</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                        <p class="sku"><strong>SKU:</strong> ${product.sku || "NA"}</p>
+                        <p class="tags"><strong>Tags:</strong> ${product.tags || "Fresh"}</p>
+                        <div class="share">
+                            <strong>Share:</strong>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-pinterest"></i>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="product-tab">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active">Description</button>
+                        <button class="tab-btn">Additional information</button>
+                        <button class="tab-btn">Review</button>
+                    </div>
+                    <div class="tab-content-desc">
+                        <p>${product.description?.paragraph || ""}</p>
+                        <p>${product.detail || ""}</p>
+                        <ul>
+                            ${product.description?.bullets?.map(
+                    (bullet) => `<li><span class="dot"></span> ${bullet}</li>`
+                ).join('') || ""
+                    }
+                        </ul>
+                    </div>
+                    <div class="tab-content-info">
+                        <p><strong>Customer Review:</strong> ${product.review || "No reviews yet."}</p>
+                    </div>
+                </div>
+                `;
+
+            // Load cart from localStorage if exists
+            const savedCart = JSON.parse(localStorage.getItem("cart"));
+            if (savedCart) {
+                cart = savedCart;
+                updateCartCount();
+            }
+                document.querySelectorAll(".add-cart").forEach(button => {
+                    button.addEventListener("click", () => {
+                        const name = product.name;
+                        const weight = product.weight
+                        const price = product.price;
+                        const image = product.image;
+
+
+                        const existing = cart.find(item => item.name === name);
+                        if (existing) {
+                            existing.count=quantitycount;
+                        } else {
+                                cart.push({ name, price, weight, image, count: quantitycount==0?1:quantitycount });
+                            
+
+                        }
+
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                        updateCartCount();
+                    });
+                });
+            
+                function updateCartCount() {
+                    const count = cart.reduce((sum, item) => sum + item.count, 0);
+                    document.getElementById("cart-count").innerText = count;
+                }
+            } else {
+                section.innerHTML = "<p>Product not found in localStorage.</p>";
+            }
+        });
+        // Add to cart button click
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const decreaseBtn = document.querySelector('.quantity1');
+        const increaseBtn = document.querySelector('.quantity2');
+        const quantityValue = document.getElementById('quantity-value');
+
+        // Set initial quantity (can be set from localStorage count if needed)
+        let quantity = parseInt(quantityValue.textContent) || 1;
+
+        // Replace with your product's actual name (or set it dynamically)
+
+        // Helper function to update cart count in localStorage
+        function updateCartQuantity(newQuantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Find the product in the cart
+            const productIndex = cart.findIndex(p => p.name === currentProductName);
+            console.log("productIndex "+productIndex)
+
+            if (productIndex !== -1) {
+                cart[productIndex].count = newQuantity;
+
+                // Remove product if quantity goes below 1
+                if (cart[productIndex].count < 1) {
+                    cart.splice(productIndex, 1);
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+
+        decreaseBtn.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantitycount--;
+                quantityValue.textContent = quantitycount;
+
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            quantitycount++;
+            quantityValue.textContent = quantitycount;
+
+        });
+    });
+
+    document.getElementById("cart-icon").addEventListener("click", function () {
+            window.location.href = "shoppingcart.html";    
+        });
+    </script>
+</body>
+
+</html>
