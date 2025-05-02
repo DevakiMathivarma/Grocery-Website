@@ -13,10 +13,12 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="assets/js/loadProducts.js"></script>
 
 </head>
 
 <body>
+
     <header>
         <div class="navigation_one">
             <div>
@@ -31,12 +33,12 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">Deliver to<span>411017</span></a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa fa-truck"></i>
-                    <a href="#">Track your order</a>
+                    <a href="order-tracking.html">Track your order</a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">All Offers</a>
@@ -74,15 +76,16 @@
             <button><i class='bx bx-search'></i></i></button>
         </div>
         <div class="nav-icons">
-            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
             <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
                 <span id="cart-count">0</span>
-
             </button>
-            <button class="icon-btn"><i class="fas fa-user"></i></button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
     <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+
         <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
@@ -90,14 +93,14 @@
         <a href="vegetable.html">Vegetables</a>
         <a href="#">Beverages</a>
         <div class="dropdown">
-            <a href="#">About us </a>
+            <a href="about-us.html">About us </a>
             <div class="dropdown-list">
                 <a href="">Contact Us</a>
-                <a href="">FAQ</a>
+                <a href="faq.html">FAQ</a>
             </div>
         </div>
 
-        <a href="#">Blogs</a>
+        <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
 
@@ -116,7 +119,7 @@
             </div>
             <div class="banner-buttons">
                 <button class="shop-btn">Shop Now →</button>
-                <a href="#" class="view-products">View All Products</a>
+                <a href="shop.html" class="view-products">View All Products</a>
             </div>
             <div class="banner-ratings">
                 <span>4.8 Ratings </span><br>
@@ -125,7 +128,7 @@
 
         </div>
         <div class="banner-image">
-            <img src="assets/images/homepage-images/Home.png">
+            <img src="assets/images/homepage-images/banner.PNG">
         </div>
     </section>
     <!-- end banner section -->
@@ -141,11 +144,11 @@
                     <p>Fresh Fruits for,the fresh on the healthy or delivery and integrin</p>
                 </div>
                 <div class="product-btn">
-                    <button>Shop Now </button>
+                    <button id="fruits-shop">Shop Now </button>
                 </div>
             </div>
             <div class="product-category-image">
-                <img src="assets/images/homepage-images/veges.png">
+                <img src="assets/images/homepage-images/fr-removebg-preview.png" >
             </div>
         </div>
         <div class="products product1">
@@ -158,7 +161,7 @@
                     <p>Fresh Fruits for,the fresh on the healthy or delivery and integrin</p>
                 </div>
                 <div class="product-btn">
-                    <button>Shop Now </button>
+                    <button id="shop">Shop Now </button>
                 </div>
             </div>
             <div class="product-category-image">
@@ -175,11 +178,11 @@
                     <p>Fresh Fruits for,the fresh on the healthy or delivery and integrin</p>
                 </div>
                 <div class="product-btn">
-                    <button>Shop Now </button>
+                    <button id="veg-shop">Shop Now </button>
                 </div>
             </div>
             <div class="product-category-image">
-                <img src="assets/images/homepage-images/images.jfif">
+                <img src="assets/images/homepage-images/veges.png">
             </div>
         </div>
     </section>
@@ -208,7 +211,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/eggs.png">
+                    <img src="assets/images/homepage-images/mango.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -243,7 +246,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/cauli.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -277,7 +280,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/orange.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -311,7 +314,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/onion.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -345,7 +348,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/carrot.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -362,7 +365,7 @@
                 <div class="featured-product-price">
                     <div>
                         <span>&#8377 80</span>
-                        <small>₹ 100</small>
+                        <small>100</small>
                     </div>
                     <div>
                         <button class="add-to-cart"><i class='bx bx-shopping-bag'></i>ADD</button>
@@ -423,7 +426,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/choco.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -458,7 +461,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/p1.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -492,7 +495,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/lowfat.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -526,7 +529,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/healthy.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -560,7 +563,7 @@
                     </div>
                 </div>
                 <div class="featured-product-items-list-image">
-                    <img src="assets/images/homepage-images/images.jfif">
+                    <img src="assets/images/homepage-images/oils.PNG">
                 </div>
                 <div class="featured-product-text">
                     <div>
@@ -592,1197 +595,214 @@
         <p>Total: ₹<span id="cart-total">0</span></p>
         <button onclick="clearCart()">Clear Cart</button>
     </div>
-    <script>
-        let cart = [];
-        const productList = [
-            {
-                name: "Fresh Apple #1",
-                price: 185,
-                originalPrice: 232,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.5,
-                discount: "20% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh apple #1 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Banana #2",
-                price: 224,
-                originalPrice: 305,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.8,
-                discount: "26% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh banana #2 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Peach #3",
-                price: 496,
-                originalPrice: 569,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.8,
-                discount: "12% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh peach #3 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Strawberry #4",
-                price: 85,
-                originalPrice: 120,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.7,
-                discount: "29% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh strawberry #4 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Guava #5",
-                price: 211,
-                originalPrice: 279,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.8,
-                discount: "24% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh guava #5 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Watermelon #6",
-                price: 212,
-                originalPrice: 248,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.7,
-                discount: "14% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh watermelon #6 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Lychee #7",
-                price: 432,
-                originalPrice: 452,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.5,
-                discount: "4% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh lychee #7 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Pineapple #8",
-                price: 145,
-                originalPrice: 228,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.9,
-                discount: "36% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh pineapple #8 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Papaya #9",
-                price: 422,
-                originalPrice: 510,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.7,
-                discount: "17% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh papaya #9 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Peach #10",
-                price: 293,
-                originalPrice: 326,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.2,
-                discount: "10% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh peach #10 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Grapes #11",
-                price: 318,
-                originalPrice: 380,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.9,
-                discount: "16% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh grapes #11 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Blueberry #12",
-                price: 381,
-                originalPrice: 432,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.3,
-                discount: "11% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh blueberry #12 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Raspberry #13",
-                price: 219,
-                originalPrice: 275,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.7,
-                discount: "20% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh raspberry #13 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Raspberry #14",
-                price: 53,
-                originalPrice: 123,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.6,
-                discount: "56% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh raspberry #14 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Blueberry #15",
-                price: 154,
-                originalPrice: 202,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.1,
-                discount: "23% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh blueberry #15 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Lychee #16",
-                price: 158,
-                originalPrice: 255,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.1,
-                discount: "38% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh lychee #16 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Cherry #17",
-                price: 140,
-                originalPrice: 207,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.3,
-                discount: "32% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh cherry #17 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Kiwi #18",
-                price: 84,
-                originalPrice: 156,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.2,
-                discount: "46% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh kiwi #18 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Dragon Fruit #19",
-                price: 108,
-                originalPrice: 153,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.2,
-                discount: "29% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh dragon fruit #19 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Grapes #20",
-                price: 469,
-                originalPrice: 510,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.4,
-                discount: "8% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh grapes #20 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Lychee #21",
-                price: 360,
-                originalPrice: 383,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.1,
-                discount: "6% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh lychee #21 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Strawberry #22",
-                price: 345,
-                originalPrice: 375,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.5,
-                discount: "8% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh strawberry #22 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Cherry #23",
-                price: 57,
-                originalPrice: 117,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.5,
-                discount: "51% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh cherry #23 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Pomegranate #24",
-                price: 267,
-                originalPrice: 294,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.7,
-                discount: "9% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh pomegranate #24 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Pomegranate #25",
-                price: 399,
-                originalPrice: 440,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.3,
-                discount: "9% Off",
-                category: "Fruits",
-                detail: "High-quality fruits to elevate your meals.",
-                description: {
-                    paragraph: "This fresh pomegranate #25 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Turnip #26",
-                price: 321,
-                originalPrice: 418,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.2,
-                discount: "23% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh turnip #26 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Brinjal #27",
-                price: 258,
-                originalPrice: 343,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.4,
-                discount: "24% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh brinjal #27 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Spinach #28",
-                price: 380,
-                originalPrice: 468,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.6,
-                discount: "18% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh spinach #28 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Cauliflower #29",
-                price: 143,
-                originalPrice: 165,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.7,
-                discount: "13% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh cauliflower #29 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Beetroot #30",
-                price: 311,
-                originalPrice: 393,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.2,
-                discount: "20% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh beetroot #30 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Tomato #31",
-                price: 223,
-                originalPrice: 276,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.8,
-                discount: "19% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh tomato #31 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Capsicum #32",
-                price: 262,
-                originalPrice: 291,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.7,
-                discount: "9% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh capsicum #32 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Onion #33",
-                price: 413,
-                originalPrice: 512,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.4,
-                discount: "19% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh onion #33 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Potato ",
-                price: 254,
-                originalPrice: 345,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.8,
-                discount: "26% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh potato #34 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Bottle Gourd #35",
-                price: 468,
-                originalPrice: 535,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.7,
-                discount: "12% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh bottle gourd #35 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Green Beans #36",
-                price: 163,
-                originalPrice: 207,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.1,
-                discount: "21% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh green beans #36 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Potato #37",
-                price: 485,
-                originalPrice: 567,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.8,
-                discount: "14% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh potato #37 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Turnip #38",
-                price: 248,
-                originalPrice: 341,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.2,
-                discount: "27% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh turnip #38 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Capsicum #39",
-                price: 264,
-                originalPrice: 311,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.0,
-                discount: "15% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh capsicum #39 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Sweet Corn #40",
-                price: 291,
-                originalPrice: 320,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.9,
-                discount: "9% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh sweet corn #40 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Cucumber #41",
-                price: 319,
-                originalPrice: 399,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.8,
-                discount: "20% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh cucumber #41 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Carrot #42",
-                price: 337,
-                originalPrice: 363,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.3,
-                discount: "7% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh carrot #42 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Zucchini #43",
-                price: 316,
-                originalPrice: 339,
-                weight: "500g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 4.7,
-                discount: "6% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh zucchini #43 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Capsicum #44",
-                price: 310,
-                originalPrice: 347,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.6,
-                discount: "10% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh capsicum #44 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Cucumber #45",
-                price: 104,
-                originalPrice: 171,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.5,
-                discount: "39% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh cucumber #45 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Turnip #46",
-                price: 292,
-                originalPrice: 313,
-                weight: "1000g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.4,
-                discount: "6% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh turnip #46 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Bottle Gourd #47",
-                price: 242,
-                originalPrice: 291,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 2.1,
-                discount: "16% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh bottle gourd #47 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Spinach #48",
-                price: 347,
-                originalPrice: 439,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.0,
-                discount: "20% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh spinach #48 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Bottle Gourd ",
-                price: 73,
-                originalPrice: 164,
-                weight: "750g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 1.7,
-                discount: "55% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh bottle gourd #49 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            },
-            {
-                name: "Fresh Zucchini ",
-                price: 134,
-                originalPrice: 218,
-                weight: "250g",
-                image: "assets/images/homepage-images/images.jfif",
-                rating: 3.4,
-                discount: "38% Off",
-                category: "Vegetables",
-                detail: "High-quality vegetables to elevate your meals.",
-                description: {
-                    paragraph: "This fresh zucchini #50 is fresh, full of flavor, and packed with essential nutrients. Perfect for a healthy diet, it can be used in a wide variety of recipes.",
-                    bullets: [
-                        "Rich in vitamins and minerals",
-                        "Boosts immunity",
-                        "Supports overall health",
-                        "Great for cooking or raw consumption",
-                        "Freshly harvested and hygienically packed"
-                    ],
-                },
-                review: "Absolutely loved the quality and freshness! — Customer",
-            }
-        ];
-        localStorage.setItem('productList', JSON.stringify(productList));
+    <!-- testimonial section -->
+    <section class="testimonial-section">
+        <p class="section-subtitle">Testimonial</p>
+        <h2 class="section-title">Testimonial from <span>Our loyal customer</span></h2>
 
-        document.addEventListener("DOMContentLoaded", () => {
-            // Load cart from localStorage if exists
-            const savedCart = JSON.parse(localStorage.getItem("cart"));
-            if (savedCart) {
-                cart = savedCart;
-                updateCartCount();
-            }
+        <div class="testimonial-image">
 
-            // Add to cart button click
-            document.querySelectorAll(".add-to-cart").forEach(button => {
-                button.addEventListener("click", () => {
-                    const name = button.closest('.featured-product-items-list').querySelector('.featured-product-name h5').textContent;
-                    const weight = button.closest('.featured-product-items-list').querySelector('.featured-product-name p').textContent;
-                    const price = button.closest('.featured-product-items-list').querySelector('.featured-product-price span').textContent;
-                    console.log("productName", name)
+            <img src="assets/images/homepage-images/testimonial.PNG">
 
-                    const existing = cart.find(item => item.name === name);
-                    if (existing) {
-                        existing.count++;
-                    } else {
-                        cart.push({ name, price, weight, count: 1 });
-                    }
+        </div>
 
-                    localStorage.setItem("cart", JSON.stringify(cart));
-                    updateCartCount();
-                });
-            });
+        <div class="testimonial-content">
+            <p>
+                Website can useful and efficient and together more convent other and house hold and to others
+                set for the under for healthy for the foods for the delivery
+            </p>
+            <h3 class="testimonial-name">Mike walks</h3>
+            <div class="testimonial-rating">
+                <span class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span class="rating-number">5.0</span>
+            </div>
+            <p class="testimonial-role">CORPORATE EMPLOYEE</p>
+        </div>
+    </section>
+    <!-- blog section -->
+    <section class="blogs">
+        <div class="featured-product-content">
+            <div>
+                <p>News & Our Blogs</p>
+                <h3>Our Latest<span> News & Blogs Today</span></h3>
+            </div>
+            <div>
+                <a href="shop.html">View All </a>
+            </div>
 
-            // Toggle cart popup
-            const cartIcon = document.getElementById("cart-icon");
-            cartIcon.addEventListener("click", () => {
-                const popup = document.getElementById("cart-popup");
-                popup.classList.toggle("hidden");
-                renderCart();
-            });
-        });
+        </div>
+        <div class="blogs-content">
+            <div class="card">
+                <img src="assets/images/homepage-images/garden.PNG">
+                <p class="description">
+                    Gregory is my beautiful gray Persian cat each paw with the delicacy ballet dancer
+                </p>
+                <p class="more-content">
+                    He moves silently through the garden, his fur catching the golden rays of sun. Gregory has a gentle
+                    demeanor and loves being surrounded by plants. He's not just a pet—he's part of the garden's soul.
+                </p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+            <div class="card">
+                <img src="assets/images/homepage-images/father.PNG">
+                <p class="description">
+                    Gregory is my beautiful gray Persian cat each paw with the delicacy ballet dancer
+                </p>
+                <p class="more-content">
+                    He moves silently through the garden, his fur catching the golden rays of sun. Gregory has a gentle
+                    demeanor and loves being surrounded by plants. He's not just a pet—he's part of the garden's soul.
+                </p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+            <div class="card">
+                <img src="assets/images/homepage-images/sell.PNG">
+                <p class="description">
+                    Gregory is my beautiful gray Persian cat each paw with the delicacy ballet dancer
+                </p>
+                <p class="more-content">
+                    He moves silently through the garden, his fur catching the golden rays of sun. Gregory has a gentle
+                    demeanor and loves being surrounded by plants. He's not just a pet—he's part of the garden's soul.
+                </p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+        </div>
 
-        function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.count, 0);
-            document.getElementById("cart-count").innerText = count;
-        }
+    </section>
+    <!-- faq section -->
+    <div class="faq-section">
+        <h3>New & Our blogs</h3>
+        <p>Our Latest <span>New & Blogs Today</span></p>
 
-        function renderCart() {
-            const cartItemsList = document.getElementById("cart-items");
-            const totalEl = document.getElementById("cart-total");
-            cartItemsList.innerHTML = "";
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <span>Are the products fresh and of high quality ?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>All our products are sourced fresh daily to ensure top-notch quality and nutrition.</p>
+            </div>
+        </div>
 
-            let total = 0;
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <span>what are your delivery hours ?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>Lego and the good and for thr foods life and of the under goods for the <br>
+                    Lood and for thr foods life and of the under goods
+                </p>
+            </div>
+        </div>
 
-            cart.forEach(item => {
-                const li = document.createElement("li");
-                li.innerText = `${item.name} x ${item.count} - ₹${item.price * item.count}`;
-                cartItemsList.appendChild(li);
-                total += item.price * item.count;
-            });
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <span>What payments methods do you accept ?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>We accept credit/debit cards, UPI, wallets, and cash on delivery.</p>
+            </div>
+        </div>
+    </div>
+    <!-- end faq -->
+     <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
 
-            totalEl.innerText = total;
-        }
+        </div>
 
-        function clearCart() {
-            cart = [];
-            localStorage.removeItem("cart");
-            updateCartCount();
-            renderCart();
-        }
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const toast = document.getElementById('itempopup');
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <!-- <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i> -->
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Add to cart logic here if needed...
-                // Show toast
-                toast.classList.remove('hidden');
-                toast.classList.add('show');
 
-                // Hide toast after 2 seconds
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                    toast.classList.add('hidden');
-                }, 2000);
-            });
-        });
-        document.getElementById("cart-icon").addEventListener("click", function () {
-            window.location.href = "shoppingcart.html";
-        });
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="assets/js/index.js">
+        
     </script>
 
 </body>

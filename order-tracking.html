@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .navigation_one {
+            display: flex;
+            /* max-width: 1200px; */
+            width: 100%;
+            margin: auto;
+            justify-content: space-between;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            background-color: #ffc42a;
+            padding: 10px;
+        }
+
+        .navigation_one_tracking {
+            display: flex;
+        }
+
+        .navigation_one .sign-up a {
+            display: inline-block;
+            text-decoration: dotted;
+        }
+
+        .navigation_one h4 {
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .navigation_one a {
+            font-size: 12px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .navigation_one p {
+            font-size: 13px;
+        }
+
+        .navigation_one_tracking a,
+        span,
+        i {
+            margin-left: 8px;
+        }
+
+        .navigation_one_tracking i {
+            font-size: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #1c8057;
+            line-height: 30px;
+        }
+
+        .location .location-name {
+            display: block;
+            color: #ffeac7;
+            transform: translateY(30px);
+        }
+
+        .location select {
+            transform: translateY(-15px);
+            border: none;
+            font-size: 10px;
+            background: transparent;
+            outline: none;
+        }
+
+        .search-container {
+            width: 450px;
+            padding: 8px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #5fc393;
+        }
+
+        .search-container select,
+        .search-container input {
+            border: none;
+            padding: 8px;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-container input::placeholder {
+            color: white;
+        }
+
+        .search-container button {
+            border: none;
+            background: none;
+        }
+
+        .search-container button i {
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-icons .icon-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .nav-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-icons .icon-btn i {
+            font-size: 15px;
+            color: white;
+            background: transparent;
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1c8057;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: white;
+            margin: 0 25px;
+            font-size: 15px;
+        }
+
+        .browse-btn {
+            background-color: #ffc42a;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .recently-view {
+            margin-left: 20px;
+            color: #ffc42a;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .dropdown {
+            position: relative;
+            /* display: inline-block; */
+        }
+
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 25px;
+            left: -15px;
+            width: 180px;
+            border-radius: 5px;
+            background-color: #1c8057;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 100;
+
+        }
+
+        .dropdown:hover .dropdown-list {
+            display: block;
+        }
+
+        .dropdown-list a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: white;
+            background-color: transparent;
+        }
+
+        .dropdown-list a:hover {
+            background-color: grey;
+        }
+
+        /* end navbar styling */
+
+        .hero {
+            background-color: #fef2d3;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .hero p {
+            color: #555;
+        }
+
+        .cart-section-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* order-tracking section styling */
+        .order-track-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .instructions {
+            width: 700px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .order-form label {
+            display: block;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .order-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .order-form button {
+            background-color: #1c8057;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            background-color: #267326;
+        }
+
+        .products {
+            padding: 10px;
+            border-radius: 15px;
+            text-align: left;
+            width:900px;
+        }
+
+        .ordered-product {
+            padding: 10px;
+            border-bottom: 1px solid grey;
+            display: flex;
+            gap: 30px;
+        }
+       
+        .ordered-product .image img {
+            width: 50px;
+            border-radius: 10px;
+        }
+        .order-status {
+            width: 800px !important;
+  display: none;
+}
+.order-image{
+    max-width: 1200px;
+    width:100%;
+    margin:auto;
+}
+.order-image{
+    margin-top: 30px;
+}
+.order-image img{
+    width:100%;
+}
+/* .order-status-product .products{
+    width:800px;
+} */
+.order-status-product .products h3{
+    text-align: left;
+    /* width:800px; */
+}
+  /* key-features sectio styling */
+  .key-features {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+}
+.key-features{
+  margin-top: 30px;
+}
+.key-features-content {
+  display: flex;
+  gap: 5px;
+}
+/* newsletter styling */
+.newsletter {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+.newsletter h4 {
+  color: black;
+
+  font-size: 18px;
+}
+.newsletter h2 {
+  font-size: 24px;
+  width: 400px;
+  margin: 10px auto;
+}
+
+.newsletter p {
+  color: #555;
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+.newsletter input {
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  background-color: #d9d9d9;
+  width: 300px;
+  max-width: 100%;
+}
+
+.newsletter button {
+  padding: 12px 20px;
+  background: #ffce56;
+  border: none;
+  font-weight: bold;
+  border-radius: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+/* footer styling */
+footer {
+  background-color: #00795c;
+  color: white;
+  padding: 30px 20px;
+  width: 100%;
+}
+.footer-about {
+  display: flex;
+  gap: 30px;
+}
+
+footer h4 {
+  margin-bottom: 13px;
+  font-size: 15px;
+}
+
+footer p,
+footer a {
+  font-size: 12px;
+  color: #eee;
+  text-decoration: none;
+  display: block;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+footer .footer-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
+  gap: 30px;
+}
+footer .social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+footer .youtube i {
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer .WhatsApp i {
+  color: white;
+  background-color: lightgreen;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer .instagram i {
+  color: white;
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer .facebook i {
+  color: white;
+  background-color: rgb(1, 101, 225);
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer .twitter i {
+  color: white;
+  background-color: rgb(29, 155, 240);
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.copyright {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.copyright span {
+  color: #f5d584;
+}
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="navigation_one">
+            <div>
+                <p>Call us : +91996576569</p>
+            </div>
+            <div class="sign-up">
+                <h4>Sign Up and Get 50% OFF for first order.</h4>
+                <a href="#">Sign up now</a>
+            </div>
+            <div class="navigation_one_tracking">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">Deliver to<span>411017</span></a>
+                </div>
+                <span>|</span>
+                <div>
+                    <i class="fa fa-truck"></i>
+                    <a href="#">Track your order</a>
+                </div>
+                <span>|</span>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">All Offers</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header class="navbar">
+        <div class="logo">
+            <img src="">
+        </div>
+
+        <div class="location">
+
+            <label class="location-name">Location</label><br>
+            <!-- <i class="fa fa-truck"></i> -->
+            <select>
+
+                <option>Tirunelveli,Tamilnadu</option>
+                <option>Trichy,Tamilnadu</option>
+                <option>Kanjipuram,Tamilnadu</option>
+                <option>Cuddalur,Tamilnadu</option>
+            </select>
+
+        </div>
+        <div class="search-container">
+            <select class="category-select">
+                <option>All Categories</option>
+                <option>Fruits</option>
+                <option>Vegetables</option>
+                <option>Beverages</option>
+            </select>
+            <input type="text" placeholder="Search for products">
+            <button><i class='bx bx-search'></i></i></button>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
+                <span id="cart-count">0</span>
+            </button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
+        </div>
+    </header>
+    <nav class="main-menu">
+        <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetable.html">Vegetables</a>
+        <a href="#">Beverages</a>
+        <div class="dropdown">
+            <a href="about-us.html">About us </a>
+            <div class="dropdown-list">
+                <a href="">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+
+        <a href="blog.html">Blogs</a>
+        <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
+    </nav>
+    <!-- end navbar section -->
+    <!-- hero section -->
+    <section class="hero">
+        <h1>Track Your Order</h1>
+        <p>Home / Track Your Order</p>
+    </section>
+    <!-- order tracking section -->
+    <div class="order-track-container">
+        <p class="instructions">
+            To track your order please enter your Order ID in the box below and press the “TRACK ORDER” button.
+            This was given to you in your order confirmation.
+        </p>
+
+        <form class="order-form">
+            <label for="order-id">Order ID*</label>
+            <input type="text" id="order-id" placeholder="Enter your order ID" required>
+
+            <label for="billing-email">Billing Email*</label>
+            <input type="email" id="billing-email" placeholder="Enter your billing email" required>
+
+            <button type="submit">Order Track</button>
+        </form>
+
+        <div class="order-status">
+            <p>Order Status</p>
+            <p>Order ID:<small></small></p>
+            <div class="order-image">
+                <img src="assets/images/homepage-images/order.PNG">
+            </div>
+            <div class="order-status-product">
+                <div class="products">
+                    <h3>Product</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+      <!-- key-features -->
+      <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <!-- <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i> -->
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let productHTML = document.querySelector(".order-status-product");
+
+        const orders = JSON.parse(localStorage.getItem("orders"));
+        console.log(orders)
+        orders.forEach(item => {
+
+            productHTML.innerHTML += `
+       
+          <div class="ordered-product">
+            <div class="image">
+            <img src="${item.image}">
+            </div>
+            <div>
+            <p>${item.name}</p>
+            <p><small>${item.weight}</small></p>
+            <div>
+          </div>
+       
+      `;
+        });
+        document.getElementById('userIcon').addEventListener('click', function() {
+    window.location.href = 'about.html';
+  });
+
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const orderForm = document.querySelector(".order-form");
+    const orderStatus = document.querySelector(".order-status");
+    const orderIdInput = document.getElementById("order-id");
+    const billingEmailInput = document.getElementById("billing-email");
+    const instructions = document.querySelector(".instructions")
+    const orderIdDisplay = orderStatus.querySelector("small");
+
+    // Hide the order status initially
+    orderStatus.style.display = "none";
+    instructions.style.display = "none";
+
+    orderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const orderId = orderIdInput.value.trim();
+      const billingEmail = billingEmailInput.value.trim();
+
+      if (orderId && billingEmail) {
+        orderForm.style.display = "none";
+        orderStatus.style.display = "block";
+        orderIdDisplay.textContent = orderId;
+      } else {
+        alert("Please fill in both Order ID and Billing Email.");
+      }
+    });
+  });
+
+
+    </script>
+</body>
+
+</html>

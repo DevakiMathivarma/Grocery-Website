@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="assets/css/about.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="navigation_one">
+            <div>
+                <p>Call us : +91996576569</p>
+            </div>
+            <div class="sign-up">
+                <h4>Sign Up and Get 50% OFF for first order.</h4>
+                <a href="#">Sign up now</a>
+            </div>
+            <div class="navigation_one_tracking">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">Deliver to<span>411017</span></a>
+                </div>
+                <span class="line">|</span>
+                <div>
+                    <i class="fa fa-truck"></i>
+                    <a href="order-tracking.html">Track your order</a>
+                </div>
+                <span class="line">|</span>
+                <div class="offers">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">All Offers</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header class="navbar">
+        <div class="logo">
+            <img src="">
+        </div>
+
+        <div class="location">
+
+            <label class="location-name">Location</label><br>
+            <!-- <i class="fa fa-truck"></i> -->
+            <select>
+
+                <option>Tirunelveli,Tamilnadu</option>
+                <option>Trichy,Tamilnadu</option>
+                <option>Kanjipuram,Tamilnadu</option>
+                <option>Cuddalur,Tamilnadu</option>
+            </select>
+
+        </div>
+        <div class="search-container">
+            <select class="category-select">
+                <option>All Categories</option>
+                <option>Fruits</option>
+                <option>Vegetables</option>
+                <option>Beverages</option>
+            </select>
+            <input type="text" placeholder="Search for products">
+            <button><i class='bx bx-search'></i></i></button>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
+                <span id="cart-count">0</span>
+            </button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
+        </div>
+    </header>
+    <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+
+        <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetable.html">Vegetables</a>
+        <a href="#">Beverages</a>
+        <div class="dropdown">
+            <a href="about-us.html">About us </a>
+            <div class="dropdown-list">
+                <a href="">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+
+        <a href="blog.html">Blogs</a>
+        <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
+    </nav>
+
+    <div class="account-header">
+        Account<br><small>Home / Account</small>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button class="tab-btn active" data-target="personal-info">Personal Information</button>
+            <button class="tab-btn" data-target="my-order">My Order</button>
+            <button class="tab-btn" data-target="manage-address">Manage Address</button>
+            <!-- <button class="tab-btn" data-target="payment-method">Payment Method</button> -->
+            <button class="tab-btn" data-target="password-manager">Password Manager</button>
+            <button class="tab-btn" data-target="logout">Logout</button>
+
+        </div>
+
+        <div class="content">
+            <div id="personal-info" class="tab-content">
+                <form id="infoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="lastName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender *</label>
+                        <input type="text" id="gender">
+                    </div>
+                    <div id="errorMsg" class="error"></div>
+                    <button type="submit" class="update-btn">Update Changes</button>
+                </form>
+            </div>
+
+            <div id="my-order" class="tab-content hidden">
+                <div id="order-list"></div>
+            </div>
+            <div id="manage-address" class="tab-content hidden">
+                <div class="account-form">
+                    <h2>Account</h2>
+                    <p>Home / Account</p>
+
+                    <div class="address-section">
+                        <div class="saved-address" id="savedAddressList">
+
+                            <!-- Dynamic address cards will appear here -->
+                        </div>
+
+                        <form class="add-address-form" id="addressForm" novalidate>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="addressFirstName" placeholder="First Name *" required>
+                                    <small class="error-text" id="error-addressFirstName"></small>
+                                </div>
+                                <div class="input-wrapper">
+                                    <input type="text" id="addressLastName" placeholder="Last Name *" required>
+                                    <small class="error-text" id="error-addressLastName"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="companyName" placeholder="Company Name (Optional)">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="country" placeholder="Country *" required>
+                                    <small class="error-text" id="error-country"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="streetAddress" placeholder="Street Address *" required>
+                                    <small class="error-text" id="error-streetAddress"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="city" placeholder="City *" required>
+                                    <small class="error-text" id="error-city"></small>
+                                </div>
+                                <div class="input-wrapper">
+                                    <input type="text" id="state" placeholder="State *" required>
+                                    <small class="error-text" id="error-state"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="zipCode" placeholder="Zip Code *" required>
+                                    <small class="error-text" id="error-zipCode"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="tel" id="addressPhone" placeholder="Phone *" required>
+                                    <small class="error-text" id="error-addressPhone"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="email" id="addressEmail" placeholder="Email *" required>
+                                    <small class="error-text" id="error-addressEmail"></small>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="add-address-btn" id="addAddressBtn">Add Address</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="payment-method" class="tab-content hidden">
+
+                <div class="payment-method-section">
+                    <h2>Payment Method</h2>
+
+                    <form id="paymentForm" novalidate>
+
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" name="payment" value="paypal">
+                                <i class="fab fa-cc-paypal"></i> PayPal
+                            </label>
+
+                            <label>
+                                <input type="radio" name="payment" value="visa">
+                                <i class="fab fa-cc-visa"></i> ************7870
+                            </label>
+
+                            <label>
+                                <input type="radio" name="payment" value="gpay">
+                                <i class="fab fa-google-pay"></i> Google Pay
+                            </label>
+
+                            <label>
+                                <input type="radio" name="payment" value="cod">
+                                <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                            </label>
+                        </div>
+
+                        <div class="new-card-section">
+                            <label>
+                                <input type="radio" name="payment" value="newCard">
+                                <i class="fas fa-credit-card"></i> Add New Credit / Debit Card
+                            </label>
+
+                            <div class="new-card-fields">
+                                <div class="form-group">
+                                    <input type="text" id="cardHolderName" placeholder="Card Holder Name *">
+                                    <small class="error-text" id="error-cardHolderName"></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="cardNumber" placeholder="Card Number *">
+                                    <small class="error-text" id="error-cardNumber"></small>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY) *">
+                                        <small class="error-text" id="error-expiryDate"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="cvv" placeholder="CVV *">
+                                        <small class="error-text" id="error-cvv"></small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="saveCard">
+                                    <label for="saveCard">Save card for future payments</label>
+                                </div>
+
+                                <button type="submit" class="submit-btn">Add Card</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+
+
+            </div>
+
+            <div id="password-manager" class="tab-content hidden">
+                <div class="password-manager">
+                    <h2>Password *</h2>
+
+                    <div class="password-section">
+                        <label>Enter Password</label>
+                        <input type="password" placeholder="Enter current password">
+                        <a href="#" class="forgot-password">Forgot Password</a>
+                    </div>
+
+                    <div class="new-password-section">
+                        <h3>New Password</h3>
+
+                        <div class="password-field">
+                            <label>Enter Password</label>
+                            <input type="password" placeholder="Enter new password">
+                        </div>
+
+                        <div class="password-field">
+                            <label>Confirm New Password</label>
+                            <input type="password" placeholder="Confirm new password">
+                        </div>
+
+                        <button class="update-btn">Update Password</button>
+                    </div>
+                </div>
+            </div>
+            <div id="logout" class="tab-content hidden">
+                <h2 class="pass-manager">Password Manager</h2>
+                <h2 class="logout">Are you sure want to Logout ?</h2>
+                <button type="submit" class="update-btn" id="logoutbtn">Yes, Logout</button>
+
+            </div>
+        </div>
+    </div>
+    <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="assets/js/about.js">
+       
+    </script>
+
+</body>
+
+</html>

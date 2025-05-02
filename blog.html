@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery</title>
-    <link rel="stylesheet" href="assets/css/shop.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,52 +13,12 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        .dropdown {
-    position: relative;
-    /* display: inline-block; */
-}
-
-.dropdown-list {
-    display: none;
-    position: absolute;
-    top: 25px;
-    left: -15px;
-    width: 180px;
-    border-radius: 5px;
-    background-color: #1c8057;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 100;
-
-}
-
-.dropdown:hover .dropdown-list {
-    display: block;
-}
-
-.dropdown-list a {
-    display: block;
-    text-decoration: none;
-    padding: 10px;
-    color: white;
-    background-color: transparent;
-}
-
-.dropdown-list a:hover {
-    background-color: grey;
-}
-#page-info {
-    font-size: 13px;}
-    .pagination-controls button{
-        padding:10px;
-        font-size: 10px;
-    }
-    </style>
+    <script src="assets/js/loadProducts.js"></script>
 
 </head>
 
 <body>
+
     <header>
         <div class="navigation_one">
             <div>
@@ -76,10 +36,10 @@
                 <span class="line">|</span>
                 <div>
                     <i class="fa fa-truck"></i>
-                    <a href="#">Track your order</a>
+                    <a href="order-tracking.html">Track your order</a>
                 </div>
-                <span class="line" >|</span>
-                <div>
+                <span class="line">|</span>
+                <div class="offers">
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">All Offers</a>
                 </div>
@@ -119,13 +79,13 @@
             <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
             <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
                 <span id="cart-count">0</span>
-
             </button>
             <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
     <nav class="main-menu">
         <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+
         <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
@@ -139,112 +99,148 @@
                 <a href="faq.html">FAQ</a>
             </div>
         </div>
+
         <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
+    <!-- navbar end -->
+    <section class="hero">
+        <h1>Blog</h1>
+        <p>Home / Blog</p>
+    </section>
+    <!-- blog section -->
 
-    <!-- end navbar section -->
-    <!-- filtering category in products -->
-    <section class="filtering-products">
-        <div class="filtering">
-            <h2>Filter Options</h2>
+    <section class="news-blog-section">
+        <p class="section-subtitle">News & our Blog</p>
+        <h2 class="section-title"><span>Our Lastest</span> New & Blog</h2>
+        <div class="container">
+            <div class="main-blog">
 
-            <div class="category-selection" id="category-selection">
-                <h3>Category</h3>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Chocolate</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Fruits</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Vegetables</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Spices</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Drinks</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Dairy</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Oils</label>
-                </div>
-                <div class="category-list">
-                    <input type="checkbox">
-                    <label>Wash</label>
+                <div class="news-card">
+                    <h3>Our News</h3>
+                    <p class="news-desc">Get the latest updates and deeper fruits experience from IMAJI fruits</p>
+                    <div class="blog-image">
+                        <img src="assets/images/homepage-images/Image.jpg">
+                    </div>
+                    <h4 class="blog-title">Collaboration to Develop Coffee and Beverage Industry Expertise in Indonesia
+                    </h4>
+                    <p class="blog-date">4 Min • August 19, 2022</p>
                 </div>
             </div>
-            <!-- Price Filter -->
-            <div class="price-filter">
-                <h4>Price</h4>
-                <label>₹ <span id="min-price">399</span> - ₹ <span id="max-price">699</span></label><br>
-                <input type="range" id="price-min" min="100" max="1000" value="399" step="1"><br>
-                <label>₹ <span id="min-price">699</span> - ₹ <span id="max-price">899</span></label><br>
-                <input type="range" id="price-max" min="100" max="1000" value="899" step="1">
-            </div>
 
-            <!-- Star Rating Filter -->
-            <div class="star-filter">
-                <h4>Review</h4>
-                <label><input type="checkbox" class="star-checkbox" value="5"> ⭐⭐⭐⭐⭐ 5 Star</label><br>
-                <label><input type="checkbox" class="star-checkbox" value="4"> ⭐⭐⭐⭐☆ 4 Star</label><br>
-                <label><input type="checkbox" class="star-checkbox" value="3"> ⭐⭐⭐☆☆ 3 Star</label><br>
-                <label><input type="checkbox" class="star-checkbox" value="2"> ⭐⭐☆☆☆ 2 Star</label><br>
-                <label><input type="checkbox" class="star-checkbox" value="1"> ⭐☆☆☆☆ 1 Star</label>
-            </div>
+            <aside class="sidebar">
+                <div class="search-box">
+                    <h4><span class="yellow-bar"></span> Search</h4>
+                    <div class="search-input">
+                        <input type="text" placeholder="Search">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
 
-            <!-- Brand Filter -->
-            <div class="brand-filter">
-                <h4>Brand</h4>
-                <label><input type="checkbox" class="brand-checkbox" value="Fresh Harvest"> Fresh Harvest</label><br>
-                <label><input type="checkbox" class="brand-checkbox" value="Nature’s products"> Nature’s
-                    products</label><br>
-                <label><input type="checkbox" class="brand-checkbox" value="Good Grains"> Good Grains</label><br>
-                <label><input type="checkbox" class="brand-checkbox" value="Farm Fresh"> Farm Fresh</label><br>
-                <label><input type="checkbox" class="brand-checkbox" value="Frozen Foods"> Frozen Foods</label>
-            </div>
+                <div class="category-box">
+                    <h4><span class="yellow-bar"></span> Poplar Category</h4>
+                    <ul class="categories">
+                        <li>Shopping tips</li>
+                        <li>Grocery</li>
+                        <li>Fruits & Vegetables</li>
+                        <li>Organic Food</li>
+                    </ul>
+                </div>
 
-            <hr>
-
-            <!-- Availability Filter -->
-            <div class="availability-filter">
-                <h4>Availability</h4>
-                <label><input type="checkbox" class="availability-checkbox" value="In Stock" checked> In
-                    Stock</label><br>
-                <label><input type="checkbox" class="availability-checkbox" value="Out Of Stock"> Out Of Stock</label>
-            </div>
-
-            <div class="submit-btn">
-                <button>Submit</button>
-            </div>
-        </div>
-
-        <div class="color">
-            <!-- <div class="featured-product-items"> -->
-            <main class="product-grid" id="product-grid">
-                <!-- Products injected by JavaScript -->
-            </main>
-            <div class="pagination-controls">
-                <button id="prev-page">Previous</button>
-                <span id="page-info">Page 1</span>
-                <button id="next-page">Next</button>
-            </div>
-
-            <!-- </div> -->
+                <div class="recent-post-box">
+                    <h4><span class="yellow-bar"></span> Recent post</h4>
+                </div>
+            </aside>
         </div>
     </section>
-      <!-- key-features -->
-      <section class="key-features">
+
+
+    <section class="blog-area">
+        <div class="blog-wrapper">
+
+            <div class="blog-list">
+                <div class="blog-item">
+                    <img src="assets/images/homepage-images/coffeeseeds.PNG">
+                    <div class="blog-content">
+                        <h3>Visited Doesoen Sirap fruits, The Producer of Robusta in Central Java</h3>
+                        <p>4 Min • August 19, 2022</p>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="assets/images/homepage-images/coffee.PNG">
+                    <div class="blog-content">
+                        <h3>Cold Brew Coffee, How to Drink Cold Coffee is More Enjoyable</h3>
+                        <p>4 Min • August 19, 2022</p>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="assets/images/homepage-images/coffee1.PNG">
+                    <div class="blog-content">
+                        <h3>Meet fruits Tonic, the Sensation of Drinking cold-Flavored Soda</h3>
+                        <p>4 Min • August 19, 2022</p>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="assets/images/homepage-images/coffeemix.PNG">
+                    <div class="blog-content">
+                        <h3>Workshop fruits Sharing Session</h3>
+                        <p>4 Min • August 19, 2022</p>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="assets/images/homepage-images/image 16.jpg">
+                    <div class="blog-content">
+                        <h3>Workshop fruits Brewing</h3>
+                        <p>4 Min • August 19, 2022</p>
+                    </div>
+                </div>
+
+                <button class="load-more">Load More</button>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="recent-posts">
+                    <div class="recent-post">
+                        <img src="assets/images/homepage-images/gardening.PNG">
+                        <div class="text">
+                            <h4>Top best for the foods value for the money</h4>
+                            <p>August 19, 2022</p>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <img src="assets/images/homepage-images/fatherchild.PNG">
+                        <div class="text">
+                            <h4>Top best for the foods value for the money</h4>
+                            <p>August 19, 2022</p>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <img src="assets/images/homepage-images/seller.PNG">
+                        <div class="text">
+                            <h4>Top best for the foods value for the money</h4>
+                            <p>August 19, 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="promo-banner">
+                    <img src="assets/images/homepage-images/image 17.jpg">
+                    <div class="overlay">
+                        <h4>Summer sale<br><span>20% off</span> on Freshest Products</h4>
+                        <button>Buy now</button>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+    <!-- key-features -->
+    <section class="key-features">
         <div class="key-features-content">
             <div>
                 <img src="assets/images/homepage-images/shipping.PNG">
@@ -287,6 +283,10 @@
     <footer>
         <div class="footer-about">
             <div class="social-icons">
+                <!-- <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i> -->
                 <span class="youtube"><a href="https://www.youtube.com/"><i
                             class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
                         href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
@@ -330,8 +330,8 @@
             <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
         </div>
     </footer>
-    <script src="assets/js/fruits.js">
-        
+    <script src="assets/js/blog.js">
+       
     </script>
 </body>
 

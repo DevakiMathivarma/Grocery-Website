@@ -5,623 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        .navigation_one {
-            display: flex;
-            /* max-width: 1200px; */
-            width: 100%;
-            margin: auto;
-            justify-content: space-between;
-            align-items: center;
-            font-family: "Poppins", sans-serif;
-            background-color: #ffc42a;
-            padding: 10px;
-        }
-
-        .navigation_one_tracking {
-            display: flex;
-        }
-
-        .navigation_one .sign-up a {
-            display: inline-block;
-            text-decoration: dotted;
-        }
-
-        .navigation_one h4 {
-            display: inline-block;
-            font-size: 14px;
-        }
-
-        .navigation_one a {
-            font-size: 12px;
-            color: black;
-            text-decoration: none;
-        }
-
-        .navigation_one p {
-            font-size: 13px;
-        }
-
-        .navigation_one_tracking a,
-        span,
-        i {
-            margin-left: 8px;
-        }
-
-        .navigation_one_tracking i {
-            font-size: 10px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            background-color: #1c8057;
-            line-height: 30px;
-        }
-
-        .location .location-name {
-            display: block;
-            color: #ffeac7;
-            transform: translateY(30px);
-        }
-
-        .location select {
-            transform: translateY(-15px);
-            border: none;
-            font-size: 10px;
-            background: transparent;
-            outline: none;
-        }
-
-        .search-container {
-            width: 450px;
-            padding: 8px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            background-color: #5fc393;
-        }
-
-        .search-container select,
-        .search-container input {
-            border: none;
-            padding: 8px;
-            outline: none;
-            background: transparent;
-        }
-
-        .search-container input::placeholder {
-            color: white;
-        }
-
-        .search-container button {
-            border: none;
-            background: none;
-        }
-
-        .search-container button i {
-            color: white;
-            font-size: 20px;
-        }
-
-        .nav-icons .icon-btn {
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-
-        .nav-icons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-icons .icon-btn i {
-            font-size: 15px;
-            color: white;
-            background: transparent;
-        }
-
-        .main-menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #1c8057;
-        }
-
-        .main-menu a {
-            text-decoration: none;
-            color: white;
-            margin: 0 25px;
-            font-size: 15px;
-        }
-
-        .browse-btn {
-            background-color: #ffc42a;
-            border: none;
-            padding: 10px 20px;
-            margin-right: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-        }
-
-        .recently-view {
-            margin-left: 20px;
-            color: #ffc42a;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-
-        /* Hero section */
-        .hero {
-            background-color: #fef2d3;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            color: #000;
-        }
-
-        .hero p {
-            color: #555;
-        }
-
-        .cart-section-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Cart Section */
-        .cart-container {
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: row;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .cart-table {
-            flex: 3;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .cart-table thead {
-            background-color: #ffce56;
-            text-align: left;
-        }
-
-        .cart-table th,
-        .cart-table td {
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .cart-table td input[type="number"] {
-            width: 50px;
-            padding: 5px;
-            text-align: center;
-        }
-
-        .cart-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .cart-actions input,
-        .cart-actions button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .cart-actions button {
-            background-color: #007f2d;
-            color: white;
-            cursor: pointer;
-        }
-
-        .cart-actions .clear-btn {
-            background: none;
-            color: black;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .quantity1 {
-            padding: 6px;
-            border-top-left-radius: 30px;
-            border-bottom-left-radius: 30px;
-        }
-
-        .quantity2 {
-            padding: 5px;
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
-
-        /* Order Summary */
-        .summary-box {
-            flex: 1;
-            width: 30%;
-            height: 500px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            background: #fff;
-            margin-top: 30px;
-        }
-
-        .summary-box h3 {
-            margin-bottom: 20px;
-            border-bottom: 1px solid grey;
-        }
-
-        .summary-box p {
-            margin-bottom: 20px;
-        }
-
-        .summary-box .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .summary-box .total {
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-        }
-
-        .summary-box button {
-            /* width: 100%; */
-            display: inline-block;
-            width: auto;
-            background-color: #007f2d;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        /* Info Boxes */
-        .info-boxes {
-            display: flex;
-            justify-content: space-around;
-            padding: 40px 20px;
-            background: #fff6d8;
-            text-align: center;
-        }
-
-        .info-boxes .box {
-            flex: 1;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #fff;
-        }
-
-        .newsletter h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .newsletter input {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            width: 300px;
-            max-width: 100%;
-        }
-
-        .newsletter button {
-            padding: 12px 20px;
-            background: #ffce56;
-            border: none;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #007f2d;
-            color: white;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .footer h4 {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .footer p,
-        .footer a {
-            font-size: 14px;
-            color: #eee;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .footer .social-icons {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .footer .social-icons i {
-            background: white;
-            color: #007f2d;
-            padding: 8px;
-            border-radius: 50%;
-        }
-
-        .billing-details {
-            padding: 20px;
-            font-family: 'Poppins', sans-serif;
-            flex: 2;
-            margin-left: 30px;
-        }
-
-        .billing-details-form {
-            max-width: 600px;
-            /* margin: 0 auto; */
-        }
-
-        form h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            outline: none;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus {
-            border-color: #4caf50;
-        }
-
-        button.submit-btn {
-            margin-top: 20px;
-            padding: 10px 30px;
-            background-color: #1d7c4e;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
-            text-transform: lowercase;
-        }
-
-        button.submit-btn:hover {
-            background-color: #155c3a;
-        }
-
-        .error-msg {
-            color: red;
-            font-size: 13px;
-            margin-top: 5px;
-            display: block;
-        }
-
-        .billing-details {
-            display: none;
-        }
-
-        /* payment method css */
-        .payment-method {
-            display: none;
-        }
-
-        .payment-method {
-            width: 100%;
-            max-width: 600px;
-            margin: 30px 30px;
-            font-family: 'Segoe UI', sans-serif;
-            flex: 2;
-            padding-left: 70px;
-        }
-
-        .payment-method h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .payment-option {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            gap: 12px;
-            font-size: 16px;
-            flex: 2;
-        }
-
-        .payment-option input[type="radio"] {
-            accent-color: #4CAF50;
-            margin-right: 8px;
-        }
-
-        .payment-option img {
-            height: 24px;
-            width: auto;
-        }
-
-        .card-option .card-form {
-            padding: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-top: 12px;
-        }
-
-        .card-form label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .card-form input[type="text"],
-        .card-form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        .card-details {
-            display: flex;
-            gap: 10px;
-        }
-
-        .card-details label {
-            flex: 1;
-        }
-
-        .save-card {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .card-form button {
-            margin-top: 16px;
-            background-color: #2e8b57;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 15px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .card-form button:hover {
-            background-color: #257347;
-        }
-         /* order details styling */
-         .order-details{
-            display:none;
-         }
-         .order-details-text{
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 30px;
-         }
-         .order-details-completed{
-            border: 1px solid grey;
-            padding: 30px;
-            border-radius: 20px;
-            width:90%;
-            margin: auto;
-         }
-         .titles,.products,.shipping,.taxes,.coupon-discount,.Total{
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .cart-container {
-                flex-direction: column;
-            }
-
-            .navbar,
-            .top-bar {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
-            .summary-box {
-                width: 100%;
-            }
-
-            .info-boxes {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .cart-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/shoppingcart.css">
 </head>
 
 <body>
@@ -639,12 +25,12 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">Deliver to<span>411017</span></a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa fa-truck"></i>
                     <a href="#">Track your order</a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">All Offers</a>
@@ -682,23 +68,30 @@
             <button><i class='bx bx-search'></i></i></button>
         </div>
         <div class="nav-icons">
-            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
             <!-- <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
                 <span id="cart-count">0</span> -->
 
             </button>
-            <button class="icon-btn"><i class="fas fa-user"></i></button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
     <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="#">Fruits</a>
-        <a href="#">Vegetables</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetable.html">Vegetables</a>
         <a href="#">Beverages</a>
-        <a href="#">About us</a>
-        <a href="#">Blogs</a>
+        <div class="dropdown">
+            <a href="about-us.html">About us </a>
+            <div class="dropdown-list">
+                <a href="">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
     <!-- Hero Section -->
@@ -887,299 +280,109 @@
             </div>
         </div>
 
-        <div class="order-details">
-            <div class="order-details-text">
-                <h3 style="margin-bottom: 20px;">Your Order Is Completed !</h3>
-                <p>Thank You. Your Order Has Been Completed</p>
-            </div>
-            <div class="order-details-completed">
-                <h3>Order Details</h3>
-                <hr>
-                <div class="titles">
-                    <div>
-                        <h4>Products</h4>
+        <div class="order-details" id="orderDetailsContainer"></div>
 
-                    </div>
-                    <div>
-                        <p>Sub Total</p>
-                    </div>
-                </div>
-                <div class="products">
-                    <div>
-                        <p>${product.name}</p>
-                        <p><small>${product.weight}</small></p>
-                    </div>
-                    <div>
-                        <p>₹${subtotal.toFixed(2)}</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="shipping">
-                    <div>
-                        <p>Shipping</p>
-                    </div>
-                    <div>
-                        <p>₹20.00</p>
-                    </div>
-                </div>
-                <div class="taxes">
-                    <div>
-                        <p>Taxes</p>
-                    </div>
-                    <div>
-                        <p>₹00.00</p>
-                    </div>
-                </div>
-                <div class="coupon-discount">
-                    <div>
-                        <p>Coupon Discount</p>
-                    </div>
-                    <div>
-                        <p>₹10.00</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="Total">
-                    <div>
-                        <p>Total</p>
-                    </div>
-                    <div>
-                        <p>₹${(totalPrice + 20 - 10).toFixed(2)} </p>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
         <div class="cart-actions">
             <a href="#">Clear Shopping Cart</a>
         </div>
     </section>
+    <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
 
+        </div>
 
-
-    <!-- Features -->
-    <!-- <div class="features">
-        <p>Free shipping<br><small>Free shipping for order above ₹500</small></p>
-        <p>Flexible Payment<br><small>Multiple secure payments options</small></p>
-        <p>24 x 7 Support<br><small>We support online all days</small></p>
-    </div>
-
- 
+    </section>
+    <!-- newsletter section -->
     <div class="newsletter">
+        <h4>Our Newsletter</h4>
         <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
         <p>Get 25% on your order just by subscribing to newsletter</p>
         <input type="email" placeholder="Enter Email Address">
         <button>subscribe</button>
     </div>
-
-    
+    <!-- footer -->
     <footer>
         <div class="footer-about">
-            <p>Gregory is my beautiful gray Persian paw with the delicacy ballet dancer he slowly lifts and lowers...
-            </p>
             <div class="social-icons">
-                <i class="fab fa-facebook"></i>
+                <!-- <i class="fab fa-facebook"></i>
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-instagram"></i>
-                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-linkedin"></i> -->
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
             </div>
         </div>
-
-        <div class="footer-links">
-            <div>
-                <h4>Company</h4>
-                <a href="#">About us</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact us</a>
-                <a href="#">Career</a>
-            </div>
-            <div>
-                <h4>Customer services</h4>
-                <a href="#">My Account</a>
-                <a href="#">Track your Order</a>
-                <a href="#">Return</a>
-                <a href="#">FAQ</a>
-            </div>
-            <div>
-                <h4>Our information</h4>
-                <a href="#">Privacy</a>
-                <a href="#">User Terms & conditions</a>
-                <a href="#">Return Policy</a>
-            </div>
-            <div>
-                <h4>Contact info</h4>
-                <p>Phone number: 91837369373</p>
-                <p>Email: mgsh@gmail.com</p>
-                <p>12.kk street<br>chennai - 627006</p>
-            </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
         </div>
-    </footer> -->
-    <script>
-        // Retrieve cart from localStorage
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        const tbody = document.querySelector('.cart-table tbody');
-        const summaryBox = document.querySelector('.summary-box');
-
-        let totalQuantity = 0;
-        let totalPrice = 0;
-
-        tbody.innerHTML = '';
-
-        cart.forEach((item, index) => {
-            // Convert price string "₹ 500" to 500
-            const price = parseFloat(item.price.toString().replace(/[^0-9.]/g, ''));
-            const subtotal = price * item.count;
-            totalQuantity += item.count;
-            totalPrice += subtotal;
-
-            const row = document.createElement('tr');
-            row.innerHTML = `
-    <td>${item.name}<br><small>${item.weight}</small></td>
-    <td>₹${price.toFixed(2)}</td>
-    <td class="quantity">
-      <button class="quantity1" onclick="updateQuantity(${index}, -1)">-</button> 
-      ${item.count} 
-      <button class="quantity2"onclick="updateQuantity(${index}, 1)">+</button>
-    </td>
-    <td>₹${subtotal.toFixed(2)}</td>
-  `;
-            tbody.appendChild(row);
-        });
-
-        summaryBox.innerHTML = `
-  <h3>Order Summary</h3>
-  <p>Items: ${totalQuantity}</p>
-  <p>Sub Total: ₹${totalPrice.toFixed(2)}</p>
-  <p>Shipping: ₹20.00</p>
-  <p>Taxes: ₹0.00</p>
-  <p>Coupon Discount: ₹10.00</p>
-  <h4>Total: ₹${(totalPrice + 20 - 10).toFixed(2)}</h4>
-  <button class="checkout-btn payment">Proceed to Buy</button>
-`;
-
-        function updateQuantity(index, change) {
-            cart[index].count += change;
-            if (cart[index].count <= 0) {
-                cart.splice(index, 1);
-            }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            location.reload();
-        }
-        // billing validations
-
-        const form = document.getElementById("billingForm");
-
-        const fields = [
-            { id: "firstName", name: "First Name" },
-            { id: "lastName", name: "Last Name" },
-            { id: "country", name: "Country" },
-            { id: "street", name: "Street Address" },
-            { id: "city", name: "City" },
-            { id: "state", name: "State" },
-            { id: "zip", name: "Zip Code", pattern: /^[0-9]{5,6}$/ },
-            { id: "phone", name: "Phone", pattern: /^[0-9]{10}$/ },
-            { id: "email", name: "Email", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-            { id: "delivery", name: "Delivery Address" }
-        ];
-
-        fields.forEach(field => {
-            const input = document.getElementById(field.id);
-            const errorMsg = document.getElementById(`${field.id}Error`);
-
-            input.addEventListener("input", () => validate(field));
-            input.addEventListener("blur", () => validate(field));
-        });
-
-        function validate(field) {
-            const input = document.getElementById(field.id);
-            const errorMsg = document.getElementById(`${field.id}Error`);
-            const value = input.value.trim();
-
-            if (!value) {
-                errorMsg.textContent = `${field.name} is required`;
-                input.style.borderColor = "red";
-            } else if (field.pattern && !field.pattern.test(value)) {
-                errorMsg.textContent = `Enter a valid ${field.name}`;
-                input.style.borderColor = "red";
-            } else {
-                errorMsg.textContent = "";
-                input.style.borderColor = "#ccc";
-            }
-        }
-
-        form.addEventListener("submit", (e) => {
-            let valid = true;
-            fields.forEach(field => {
-                const input = document.getElementById(field.id);
-                if (!input.value.trim() || (field.pattern && !field.pattern.test(input.value.trim()))) {
-                    validate(field);
-                    valid = false;
-                }
-            });
-
-            if (!valid) {
-                e.preventDefault();
-            }
-        });
+    </footer>
 
 
-        // let checkoutbtn = document.querySelector(".checkout-btn")
-        // checkoutbtn.addEventListener("click", (event) => {
-        //     document.querySelector(".billing-details").style.display = "block"
-        //     document.querySelector(".cart-table").style.display = "none"
-        //     document.querySelector(".checkout-btn").innerText = "Proceed To Checkout"
 
-        // })
-        // let checkoutbtn1 = document.querySelector(".payment")
-        // checkoutbtn.addEventListener("click", (event) => {
-        //     document.querySelector(".billing-details").style.display = "none"
-        //     document.querySelector(".cart-table").style.display = "none"
-        //     document.querySelector(".payment-method").style.display="block"
-        //     document.querySelector(".checkout-btn").innerText = "Proceed To Checkout"
 
-        // })
-        let checkoutBtn = document.querySelector(".checkout-btn");
-        let billingDetails = document.querySelector(".billing-details");
-        let cartTable = document.querySelector(".cart-table");
-        let paymentMethod = document.querySelector(".payment-method");
-        const billingForm = document.querySelector(".billing-details form");
-        let orderdetails =document.querySelector(".order-details")
+    <script src="assets/js/shoppingcart.js">
         
-        let step = 1; // Start at Step 1
-
-        checkoutBtn.addEventListener("click", () => {
-            if (step === 1) {
-                //     //         if (!billingForm.checkValidity()) {
-                //     // alert("Please fill in all the required fields before proceeding to payment.");
-                //     // billingForm.reportValidity(); 
-                //     // return; 
-                // }
-                cartTable.style.display = "none";
-                billingDetails.style.display = "block";
-                paymentMethod.style.display = "none";
-                checkoutBtn.innerText = "Proceed to Payment";
-                step = 2;
-            } else if (step === 2) {
-                billingDetails.style.display = "none";
-                paymentMethod.style.display = "block";
-                checkoutBtn.innerText = "Place Order";
-                checkoutBtn.style.width = "50%;"
-                step = 3;
-            } else if (step === 3) {
-                document.querySelector(".summary-box").style.display="none"
-                cartTable.style.display = "none";
-                billingDetails.style.display = "none";
-                paymentMethod.style.display = "none";
-                orderdetails.style.display = "block"
-                step=4;
-            }
-        });
-
-
-
     </script>
 
 </body>

@@ -31,12 +31,12 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">Deliver to<span>411017</span></a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa fa-truck"></i>
                     <a href="#">Track your order</a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">All Offers</a>
@@ -74,27 +74,38 @@
             <button><i class='bx bx-search'></i></i></button>
         </div>
         <div class="nav-icons">
-            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
             <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
                 <span id="cart-count">0</span>
 
             </button>
-            <button class="icon-btn"><i class="fas fa-user"></i></button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
     <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="fruits.html">Fruits</a>
         <a href="vegetable.html">Vegetables</a>
         <a href="#">Beverages</a>
-        <a href="#">About us</a>
-        <a href="#">Blogs</a>
+        <div class="dropdown">
+            <a href="about-us.html">About us </a>
+            <div class="dropdown-list">
+                <a href="">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
 
     <!-- end navbar section -->
+    <!-- banner section -->
+    <div class="banner">
+        <img src="assets/images/homepage-images/Group 385.png">
+    </div>
     <!-- filtering category in products -->
     <section class="filtering-products">
         <div class="filtering">
@@ -183,7 +194,7 @@
         <div class="color">
             <!-- <div class="featured-product-items"> -->
             <main class="product-grid" id="product-grid">
-                <!-- Products injected by JavaScript -->
+
             </main>
             <div class="pagination-controls">
                 <button id="prev-page"> <i class='bx bx-chevron-left'></i></button>
@@ -194,166 +205,96 @@
             <!-- </div> -->
         </div>
     </section>
-    <script>
-        let currentPage = 1;
-        const itemsPerPage = 10;
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-            if (savedCart) {
-                cart = savedCart;
-                updateCartCount();
-            }
-            function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.count, 0);
-            document.getElementById("cart-count").innerText = count;
-        }
-        // Safe parse to avoid crashing if productList is undefined
-        let productList = [];
-        try {
-            productList = JSON.parse(localStorage.getItem("productList") || "[]");
-        } catch (e) {
-            console.error("Failed to parse productList from localStorage", e);
-        }
-        let filteredProducts = productList;
-
-        cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        const productGrid = document.getElementById("product-grid");
-        document.getElementById("prev-page").addEventListener("click", () => {
-            if (currentPage > 1) {
-                currentPage--;
-                renderProducts(filteredProducts);
-            }
-        });
-
-        document.getElementById("next-page").addEventListener("click", () => {
-            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderProducts(filteredProducts);
-            }
-        });
-
-        // Update renderProducts to use only paginatedItems
-        function renderProducts(products) {
-            filteredProducts = products;
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            const paginatedItems = products.slice(start, end);
-            productGrid.innerHTML = "";
-
-            paginatedItems.forEach(product => {
-    // Create the product card as you were doing
-    const card = document.createElement("div");
-    card.className = "featured-product-items";
-    card.innerHTML = `
-        <div class="featured-product-items-list">
-            <div class="featured-product-items-list-dicount">
-                <div><h3>${product.discount}</h3></div>
-                <div><button><i class="far fa-heart"></i></button></div>
+    <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
             </div>
-            <div class="featured-product-items-list-image">
-                <img src="${product.image}">
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
             </div>
-            <div class="featured-product-text">
-                <div><p>${product.category}</p></div>
-                <div><span>${product.rating}</span><i class='bx bxs-star'></i></div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
             </div>
-            <div class="featured-product-name">
-                <h5>${product.name}</h5>
-                <p>${product.weight}</p>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
             </div>
-            <div class="featured-product-price">
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
                 <div>
-                    <span>&#8377 ${product.originalPrice}</span>
-                    <small>₹ ${product.price}</small>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
                 </div>
-                <div><button class="add-to-cart" data-id="${product.id}"><i class='bx bx-shopping-bag'></i>ADD</button></div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
             </div>
-        </div>`;
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
 
-    // Ensure the button exists after the card is created
-    const addToCartButton = card.querySelector('.add-to-cart');
-
-    // Add the event listener inside the loop so the correct `product` is passed
-    addToCartButton.addEventListener("click", () => {
-        // Use console.log to ensure the correct product object is passed
-        console.log("Product being added:", product);
-
-        // Store the selected product in localStorage
-        localStorage.setItem("selectedProduct", JSON.stringify(product));
-
-        // Redirect to the description page
-        window.location.href = "description.html";
-    });
-
-    // Append the card to the product grid
-    productGrid.appendChild(card);
-});
-
-            // // Update page info
-            // document.getElementById("page-info").textContent = `Page ${currentPage} of ${Math.ceil(products.length / itemsPerPage)}`;
-
-            // // Disable buttons at bounds
-            // document.getElementById("prev-page").disabled = currentPage === 1;
-            // document.getElementById("next-page").disabled = currentPage >= Math.ceil(products.length / itemsPerPage);
-            // ✅ Correctly update page info
-            const totalPages = Math.ceil(products.length / itemsPerPage);
-            document.getElementById("page-info").textContent = `Page ${currentPage} of ${totalPages}`;
-
-            // ✅ Handle button disable state
-            document.getElementById("prev-page").disabled = currentPage === 1;
-            document.getElementById("next-page").disabled = currentPage >= totalPages;
-
-        }
-
-
-
-        renderProducts(productList);
-
-        document.querySelector('.submit-btn button').addEventListener('click', () => {
-            const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
-            const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
-            const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
-            const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
-
-            const minPrice = parseFloat(document.getElementById("price-min").value);
-            const maxPrice = parseFloat(document.getElementById("price-max").value);
-
-
-
-            const brandMap = {
-                "Fresh Harvest": "Vegetables",
-                "Farm Fresh": "Vegetables",
-                "Nature’s products": "Fruits",
-                "Frozen Foods": "Dairy",
-                "Good Grains": "Spices"
-            };
-
-            const filtered = productList.filter(product => {
-                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
-
-
-                const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => {
-                    return brandMap[brand] === product.category;
-                });
-                const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
-                const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
-                const priceMatch = product.price >= minPrice && product.price <= maxPrice;
-
-                console.log({ product, categoryMatch, brandMatch, availabilityMatch, ratingMatch, priceMatch });
-
-                return categoryMatch && brandMatch && availabilityMatch && ratingMatch && priceMatch;
-            });
-
-            console.log(filtered)
-            currentPage = 1;
-            renderProducts(filtered);
-        });
-        document.getElementById("cart-icon").addEventListener("click", function () {
-            window.location.href = "shoppingcart.html";    
-        });
-
+    <script src="assets/js/shop.js">
+       
     </script>
 </body>
 

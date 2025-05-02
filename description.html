@@ -13,414 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        .navigation_one {
-            display: flex;
-            /* max-width: 1200px; */
-            width: 100%;
-            margin: auto;
-            justify-content: space-between;
-            align-items: center;
-            font-family: "Poppins", sans-serif;
-            background-color: #ffc42a;
-            padding: 10px;
-        }
-
-        .navigation_one_tracking {
-            display: flex;
-        }
-
-        .navigation_one .sign-up a {
-            display: inline-block;
-            text-decoration: dotted;
-        }
-
-        .navigation_one h4 {
-            display: inline-block;
-            font-size: 14px;
-        }
-
-        .navigation_one a {
-            font-size: 12px;
-            color: black;
-            text-decoration: none;
-        }
-
-        .navigation_one p {
-            font-size: 13px;
-        }
-
-        .navigation_one_tracking a,
-        span,
-        i {
-            margin-left: 8px;
-        }
-
-        .navigation_one_tracking i {
-            font-size: 10px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            background-color: #1c8057;
-            line-height: 30px;
-        }
-
-        .location .location-name {
-            display: block;
-            color: #ffeac7;
-            transform: translateY(30px);
-        }
-
-        .location select {
-            transform: translateY(-15px);
-            border: none;
-            font-size: 10px;
-            background: transparent;
-            outline: none;
-        }
-
-        .search-container {
-            width: 450px;
-            padding: 8px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            background-color: #5fc393;
-        }
-
-        .search-container select,
-        .search-container input {
-            border: none;
-            padding: 8px;
-            outline: none;
-            background: transparent;
-        }
-
-        .search-container input::placeholder {
-            color: white;
-        }
-
-        .search-container button {
-            border: none;
-            background: none;
-        }
-
-        .search-container button i {
-            color: white;
-            font-size: 20px;
-        }
-
-        .nav-icons .icon-btn {
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-
-        .nav-icons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-icons .icon-btn i {
-            font-size: 15px;
-            color: white;
-            background: transparent;
-        }
-
-        .main-menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #1c8057;
-        }
-
-        .main-menu a {
-            text-decoration: none;
-            color: white;
-            margin: 0 25px;
-            font-size: 15px;
-        }
-
-        .browse-btn {
-            background-color: #ffc42a;
-            border: none;
-            padding: 10px 20px;
-            margin-right: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-        }
-
-        .recently-view {
-            margin-left: 20px;
-            color: #ffc42a;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        .dropdown {
-            position: relative;
-            /* display: inline-block; */
-        }
-
-        .dropdown-list {
-            display: none;
-            position: absolute;
-            top: 25px;
-            left: -15px;
-            width: 180px;
-            border-radius: 5px;
-            background-color: #1c8057;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            z-index: 100;
-
-        }
-
-        .dropdown:hover .dropdown-list {
-            display: block;
-        }
-
-        .dropdown-list a {
-            display: block;
-            text-decoration: none;
-            padding: 10px;
-            color: white;
-            background-color: transparent;
-        }
-
-        .dropdown-list a:hover {
-            background-color: grey;
-        }
-
-        /* navbar style end */
-        /* hero section styling */
-        .hero {
-            background-color: #fef2d3;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            color: #000;
-        }
-
-        .hero p {
-            color: #555;
-        }
-
-        .cart-section-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* description styling */
-        .product-details-column {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            border: 1px solid #ccc;
-            background: #fff;
-            width: 90%;
-            margin: auto;
-        }
-
-        .product-details-left-column {
-            width: 80%;
-            text-align: center;
-            border: 1px solid black;
-        }
-
-        .product-details-left-column img {
-            width: 100%;
-        }
-
-        .category {
-            color: gray;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .rating {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .price {
-            font-size: 18px;
-            margin: 15px 0;
-        }
-
-        .price .small {
-            text-decoration: line-through;
-            color: gray;
-            margin-left: 10px;
-            font-size: 18px;
-        }
-
-        .quantity-section {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 999px;
-            /* Pill shape */
-            overflow: hidden;
-            width: fit-content;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .quantity-section button {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border: none;
-            font-size: 22px;
-            color: #007a5c;
-            cursor: pointer;
-            border-right: 1px solid black;
-            transition: background 0.3s ease;
-        }
-
-        .quantity-section .quantity-increase {
-            border-left: 1px solid black;
-        }
-
-        .quantity-section button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .quantity-section span {
-            width: 40px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .sku {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .tags {
-            margin-bottom: 10px;
-        }
-
-        .actions {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .add-cart {
-            padding: 10px 20px;
-            background: #008e64;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-        }
-
-        .buy-now {
-            padding: 10px 20px;
-            background: #ffc107;
-            color: black;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-        }
-
-        .share i {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        /* tab section styling */
-        .product-tab {
-            padding: 20px;
-            border-top: 1px solid #eee;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .dot {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: linear-gradient(to bottom, #FFD700, #999);
-            margin-right: 10px;
-            border: 2px solid #444;
-        }
-
-        .tab-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-bottom: 16px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            font-size: 19px;
-            padding: 10px;
-            cursor: pointer;
-            position: relative;
-            font-weight: 500;
-            color: #444;
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #222;
-            border-radius: 2px;
-        }
-
-        .tab-content-desc p {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-
-        .tab-content-desc ul li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-    </style>
+   <link rel="stylesheet" href="assets/css/description.css">
 
 </head>
 
@@ -439,13 +32,13 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">Deliver to<span>411017</span></a>
                 </div>
-                <span>|</span>
+                <span class="line">|</span>
                 <div>
                     <i class="fa fa-truck"></i>
                     <a href="#">Track your order</a>
                 </div>
-                <span>|</span>
-                <div>
+                <span class="line">|</span>
+                <div class="offers">
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="#">All Offers</a>
                 </div>
@@ -482,15 +75,16 @@
             <button><i class='bx bx-search'></i></i></button>
         </div>
         <div class="nav-icons">
-            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
             <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
                 <span id="cart-count">0</span>
 
             </button>
-            <button class="icon-btn"><i class="fas fa-user"></i></button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
     <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
@@ -498,14 +92,14 @@
         <a href="vegetable.html">Vegetables</a>
         <a href="#">Beverages</a>
         <div class="dropdown">
-            <a href="#">About us </a>
+            <a href="about-us.html">About us </a>
             <div class="dropdown-list">
                 <a href="">Contact Us</a>
-                <a href="">FAQ</a>
+                <a href="faq.html">FAQ</a>
             </div>
         </div>
 
-        <a href="#">Blogs</a>
+        <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
 
@@ -520,162 +114,101 @@
 
     </section>
 
-    <script>
-        if (!localStorage.getItem("cart")) {
-    localStorage.setItem("cart", JSON.stringify([]));
-}
-let currentProductName = "";
-let quantitycount = 1;
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const product = JSON.parse(localStorage.getItem("selectedProduct"));
-            const section = document.querySelector(".product-details");
+    <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
 
-            if (product && section) {
-                currentProductName=product.name;
-                section.innerHTML = `
-                <div class="product-details-column">
-                    <div class="product-details-left-column">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-details-right-column">
-                        <p class="category">${product.category}</p>
-                        <h3 class="title">${product.name}</h3>
-                        <div class="rating">
-                            <h3>⭐⭐⭐⭐⭐ ${product.rating}</h3>
-                        </div>
-                        <div class="price">
-                            <span>&#8377; ${product.originalPrice}</span>
-                            <small>&#8377; ${product.price}</small>
-                        </div>
-                        <div class="quantity-section">
-      <button class="quantity1">-</button> 
-    <span id="quantity-value">${quantitycount}</span>
-      <button class="quantity2">+</button>
-                        </div>
-                        <div class="actions">
-                            <button class="add-cart">Add To Cart</button>
-                            <button class="buy-now">Buy Now</button>
-                        </div>
-                        <p class="sku"><strong>SKU:</strong> ${product.sku || "NA"}</p>
-                        <p class="tags"><strong>Tags:</strong> ${product.tags || "Fresh"}</p>
-                        <div class="share">
-                            <strong>Share:</strong>
-                            <i class="fab fa-facebook"></i>
-                            <i class="fab fa-instagram"></i>
-                            <i class="fab fa-pinterest"></i>
-                        </div>
-                    </div>
+        </div>
+
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <!-- <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i> -->
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
                 </div>
-        
-                <div class="product-tab">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active">Description</button>
-                        <button class="tab-btn">Additional information</button>
-                        <button class="tab-btn">Review</button>
-                    </div>
-                    <div class="tab-content-desc">
-                        <p>${product.description?.paragraph || ""}</p>
-                        <p>${product.detail || ""}</p>
-                        <ul>
-                            ${product.description?.bullets?.map(
-                    (bullet) => `<li><span class="dot"></span> ${bullet}</li>`
-                ).join('') || ""
-                    }
-                        </ul>
-                    </div>
-                    <div class="tab-content-info">
-                        <p><strong>Customer Review:</strong> ${product.review || "No reviews yet."}</p>
-                    </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
-                `;
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="assets/js/description.js">
+       
 
-            // Load cart from localStorage if exists
-            const savedCart = JSON.parse(localStorage.getItem("cart"));
-            if (savedCart) {
-                cart = savedCart;
-                updateCartCount();
-            }
-                document.querySelectorAll(".add-cart").forEach(button => {
-                    button.addEventListener("click", () => {
-                        const name = product.name;
-                        const weight = product.weight
-                        const price = product.price;
-                        const image = product.image;
-
-
-                        const existing = cart.find(item => item.name === name);
-                        if (existing) {
-                            existing.count=quantitycount;
-                        } else {
-                                cart.push({ name, price, weight, image, count: quantitycount==0?1:quantitycount });
-                            
-
-                        }
-
-                        localStorage.setItem("cart", JSON.stringify(cart));
-                        updateCartCount();
-                    });
-                });
-            
-                function updateCartCount() {
-                    const count = cart.reduce((sum, item) => sum + item.count, 0);
-                    document.getElementById("cart-count").innerText = count;
-                }
-            } else {
-                section.innerHTML = "<p>Product not found in localStorage.</p>";
-            }
-        });
-        // Add to cart button click
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const decreaseBtn = document.querySelector('.quantity1');
-        const increaseBtn = document.querySelector('.quantity2');
-        const quantityValue = document.getElementById('quantity-value');
-
-        // Set initial quantity (can be set from localStorage count if needed)
-        let quantity = parseInt(quantityValue.textContent) || 1;
-
-        // Replace with your product's actual name (or set it dynamically)
-
-        // Helper function to update cart count in localStorage
-        function updateCartQuantity(newQuantity) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Find the product in the cart
-            const productIndex = cart.findIndex(p => p.name === currentProductName);
-            console.log("productIndex "+productIndex)
-
-            if (productIndex !== -1) {
-                cart[productIndex].count = newQuantity;
-
-                // Remove product if quantity goes below 1
-                if (cart[productIndex].count < 1) {
-                    cart.splice(productIndex, 1);
-                }
-
-                localStorage.setItem('cart', JSON.stringify(cart));
-            }
-        }
-
-        decreaseBtn.addEventListener('click', () => {
-            if (quantity > 1) {
-                quantitycount--;
-                quantityValue.textContent = quantitycount;
-
-            }
-        });
-
-        increaseBtn.addEventListener('click', () => {
-            quantitycount++;
-            quantityValue.textContent = quantitycount;
-
-        });
-    });
-
-    document.getElementById("cart-icon").addEventListener("click", function () {
-            window.location.href = "shoppingcart.html";    
-        });
     </script>
 </body>
 
