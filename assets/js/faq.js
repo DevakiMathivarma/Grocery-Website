@@ -110,3 +110,10 @@ function updateCartCount() {
 document.getElementById("wishlist-icon").addEventListener("click", function () {
   window.location.href = "wishlist.html";
 });
+document.getElementById("cart-icon").addEventListener("click", function () {
+  window.location.href = "shoppingcart.html";
+});
+document.getElementById("categorySelect").addEventListener("change", function () {
+  const selectedPage = this.value;
+  window.location.href = selectedPage; // Redirect to the selected page
+});

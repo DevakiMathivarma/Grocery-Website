@@ -100,6 +100,28 @@ let cart = [];
             });
         });
 
+
+                    // Add to cart button click
+                    document.querySelectorAll(".wishlist-btn").forEach(button => {
+                        button.addEventListener("click", () => {
+                            const name = button.closest('.featured-product-items-list').querySelector('.featured-product-name h5').textContent;
+                            const weight = button.closest('.featured-product-items-list').querySelector('.featured-product-name p').textContent;
+                            const dollarPrice = button.closest('.featured-product-items-list').querySelector('.featured-product-price span').textContent;
+                            const image =  button.closest('.featured-product-items-list').querySelector('.featured-product-items-list-image img').getAttribute('src');
+        
+                            const price = dollarPrice.replace(/[^\d.]/g, '');
+                            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                            const existing = wishlist.find(item => item.name === name);
+                            if (existing) {
+                                alert('Already in wishlist!');
+                            } else {
+                                wishlist.push({ name, price, weight, image,count: 1 });
+                                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                                alert('Added to wishlist!');
+                            }
+                        });
+                    });
+
         document.querySelectorAll('.accordion-title').forEach(title => {
             title.addEventListener('click', () => {
                 const content = title.nextElementSibling;
@@ -158,4 +180,11 @@ const menuToggle = document.querySelector(".menu-toggle");
   document.getElementById('veg-shop').addEventListener('click', function() {
     window.location.href = 'vegetable.html';
   });
-    
+  document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });
+
+    document.getElementById("categorySelect").addEventListener("change", function () {
+        const selectedPage = this.value;
+        window.location.href = selectedPage; // Redirect to the selected page
+    });

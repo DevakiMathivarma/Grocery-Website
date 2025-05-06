@@ -285,8 +285,15 @@
   
   }
   .featured-product-items-list-image{
-    width:60%;
-    margin: auto;
+    /* width:60%;
+    margin: auto; */
+    width: 100%;         /* Fill full card width for better control */
+    height: 150px;   
+    padding:10px;     /* Fix the image container height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
    
   }
   .featured-product-items-list-image{
@@ -294,9 +301,13 @@
     
   }
   .featured-product-items-list-image img{
-    margin-bottom: 20px;
+    /* margin-bottom: 20px;
     width:100%;
-    overflow:hidden ;
+    overflow:hidden ; */
+
+    width: 100%;
+  height: 100%;
+  object-fit:contain;
 
   }
   .featured-product-text{

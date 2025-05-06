@@ -207,3 +207,7 @@ dropdown.addEventListener("click", () => {
 document.getElementById('userIcon').addEventListener('click', function() {
 window.location.href = 'about.html';
 });
+document.getElementById("categorySelect").addEventListener("change", function () {
+    const selectedPage = this.value;
+    window.location.href = selectedPage; // Redirect to the selected page
+});

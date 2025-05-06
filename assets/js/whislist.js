@@ -89,3 +89,7 @@ mainMenu.classList.toggle("open");
 dropdown.addEventListener("click", () => {
 dropdown.classList.toggle("active");
 });
+document.getElementById("categorySelect").addEventListener("change", function () {
+    const selectedPage = this.value;
+    window.location.href = selectedPage; // Redirect to the selected page
+});

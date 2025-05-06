@@ -46,27 +46,28 @@ form.addEventListener('submit', (e) => {
 const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 const orderListContainer = document.getElementById('order-list');
-
+let itemsHTML ="";
+const header = `
+<div class="order-header">
+<div>Order ID: <span>12DHSSKSFDF</span></div>
+<div>Payment Method: <span>GPAY</span></div>
+<div>Estimated Delivery Date: <span>May 25th 2025</span></div>
+</div>
+`;
+let orderCard;
 orders.forEach(order => {
-    const orderCard = document.createElement('div');
+    orderCard = document.createElement('div');
     orderCard.className = 'order-card';
 
     // Create the order header
-    const header = `
-<div class="order-header">
-<div>Order ID: <span>${order.orderId}</span></div>
-<div>Payment Method: <span>${order.paymentMethod}</span></div>
-<div>Total Payment: <span>${order.totalPayment}</span></div>
-<div>Estimated Delivery Date: <span>${order.estimatedDeliveryDate}</span></div>
-</div>
-`;
+
 
     // Create the order items
-    let itemsHTML = '<div class="order-items">';
+    itemsHTML = '<div class="order-items">';
     orders.forEach(item => {
         itemsHTML += `
 <div class="order-item">
-  <div>${item.name} (${item.weight} | ${item.quantity} qty)</div>
+  <div>${item.name} (${item.weight} | ${item.count} qty)</div>
 </div>
 `;
     });
@@ -93,14 +94,14 @@ orders.forEach(order => {
 
     itemsHTML += `</div>`; // Closing order-items div
 
+
+});
+
     // Combine and set the HTML
     orderCard.innerHTML = header + itemsHTML;
 
     // Append to the container
     orderListContainer.appendChild(orderCard);
-});
-
-
 document.getElementById('logoutbtn').addEventListener('click', function () {
     window.location.href = 'login.html';
 });
@@ -367,3 +368,13 @@ function updateCartCount() {
     const count = cart.reduce((sum, item) => sum + item.count, 0);
     document.getElementById("cart-count").innerText = count;
 }
+document.getElementById("cart-icon").addEventListener("click", function () {
+    window.location.href = "shoppingcart.html";
+});
+document.getElementById("wishlist-icon").addEventListener("click", function () {
+    window.location.href = "wishlist.html";
+});
+document.getElementById("categorySelect").addEventListener("change", function () {
+    const selectedPage = this.value;
+    window.location.href = selectedPage; // Redirect to the selected page
+});
