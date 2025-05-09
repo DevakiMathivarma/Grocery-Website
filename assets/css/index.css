@@ -4,6 +4,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.main-menu-navigation{
+  position: sticky;
+  top: 0;
+  width: 100%; 
+  z-index: 1000;
+}
 .navigation_one {
   display: flex;
   /* max-width: 1200px; */
@@ -50,6 +56,8 @@ i {
   gap: 20px;
   background-color: #1c8057;
   line-height: 30px;
+
+  
 }
 .location .location-name {
   display: block;
@@ -111,6 +119,7 @@ i {
   align-items: center;
   padding: 20px;
   background-color: #1c8057;
+  
 }
 .main-menu a {
   text-decoration: none;

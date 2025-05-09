@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
+    <link rel="icon" type="image/png" href="assets/images/homepage-images/fav1.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/shoppingcart.css">
@@ -76,9 +77,10 @@
             <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
+    <header class="main-menu-navigation">
     <nav class="main-menu">
         <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
+        <button class="browse-btn" id="browse"><i class="fas fa-bars"></i> Browse All Categories</button>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="fruits.html">Fruits</a>
@@ -93,6 +95,7 @@
         <a href="blog.html">Blogs</a>
         <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
     </nav>
+    </header>
     <!-- Hero Section -->
     <section class="hero">
         <h1>shopping cart</h1>
@@ -107,7 +110,7 @@
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
-                        <th>Quantity</th>
+                        <th class="quan">Quantity</th>
                         <th>Subtotal</th>
                     </tr>
                 </thead>
@@ -196,6 +199,9 @@
                     </form>
                 </div>
             </section>
+            <div id="thankYouMessage" class="thank-you-box">
+                Thank you, your details are added!
+            </div>
 
             <!-- paymentmethod -->
 

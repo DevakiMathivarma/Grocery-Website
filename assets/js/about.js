@@ -365,8 +365,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 function updateCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.count, 0);
-    document.getElementById("cart-count").innerText = count;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // const count = cart.reduce((sum, item) => sum + item.count, 0);
+    document.getElementById("cart-count").innerText = cart.length;
 }
 document.getElementById("cart-icon").addEventListener("click", function () {
     window.location.href = "shoppingcart.html";
@@ -378,3 +379,6 @@ document.getElementById("categorySelect").addEventListener("change", function ()
     const selectedPage = this.value;
     window.location.href = selectedPage; // Redirect to the selected page
 });
+document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });

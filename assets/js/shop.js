@@ -1,5 +1,5 @@
 let currentPage = 1;
-const itemsPerPage = 10;
+const itemsPerPage = 9;
 
 
 // Safe parse to avoid crashing if productList is undefined
@@ -18,8 +18,8 @@ if (savedCart) {
     updateCartCount();
 }
 function updateCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.count, 0);
-    document.getElementById("cart-count").innerText = count;
+    // const count = cart.reduce((sum, item) => sum + item.count, 0);
+    document.getElementById("cart-count").innerText = cart.length;
 }
 const productGrid = document.getElementById("product-grid");
 document.getElementById("prev-page").addEventListener("click", () => {
@@ -114,16 +114,45 @@ function renderProducts(products) {
 
 renderProducts(productList);
 
+// Price range input elements
+const priceMinInput = document.getElementById("price-min");
+const priceMaxInput = document.getElementById("price-max");
+
+// Display span elements (same ID used in both labels)
+const minPriceSpan = document.querySelectorAll("#min-price");
+const maxPriceSpan = document.querySelectorAll("#max-price");
+
+// Function to update all matching span elements
+function updatePriceDisplay() {
+    const min = parseInt(priceMinInput.value);
+    const max = parseInt(priceMaxInput.value);
+
+    minPriceSpan.forEach(span => span.textContent = min);
+    maxPriceSpan.forEach(span => span.textContent = max);
+}
+
+// Event listeners for live update while dragging
+priceMinInput.addEventListener("input", updatePriceDisplay);
+priceMaxInput.addEventListener("input", updatePriceDisplay);
+
+// Initial display setup
+updatePriceDisplay()
+
+
+
+
+
+
+
+
 document.querySelector('.submit-btn button').addEventListener('click', () => {
     const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
     const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
     const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
     const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
 
-    const minPrice = parseFloat(document.getElementById("price-min").value);
-    const maxPrice = parseFloat(document.getElementById("price-max").value);
-
-
+    const minPrice = parseFloat(priceMinInput.value);
+    const maxPrice = parseFloat(priceMaxInput.value);
 
     const brandMap = {
         "Fresh Harvest": "Vegetables",
@@ -135,11 +164,7 @@ document.querySelector('.submit-btn button').addEventListener('click', () => {
 
     const filtered = productList.filter(product => {
         const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
-
-
-        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => {
-            return brandMap[brand] === product.category;
-        });
+        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => brandMap[brand] === product.category);
         const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
         const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
         const priceMatch = product.price >= minPrice && product.price <= maxPrice;
@@ -150,8 +175,9 @@ document.querySelector('.submit-btn button').addEventListener('click', () => {
     });
 
     console.log(filtered)
-    currentPage = 1;
+   currentPage = 1;
     renderProducts(filtered);
+    // Render filtered products...
 });
 document.getElementById("cart-icon").addEventListener("click", function () {
     window.location.href = "shoppingcart.html";
@@ -211,3 +237,37 @@ document.getElementById("categorySelect").addEventListener("change", function ()
     const selectedPage = this.value;
     window.location.href = selectedPage; // Redirect to the selected page
 });
+document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });
+  
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector('.search-container input');
+  
+    if (!searchInput) return;
+  
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+  
+      const productCards = document.querySelectorAll(".featured-product-items-list");
+  
+      productCards.forEach(card => {
+        const nameElement = card.querySelector(".featured-product-name h5");
+  
+        if (!nameElement) return;
+  
+        const name = nameElement.textContent.trim().toLowerCase();
+  
+        if (name.includes(query)) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+  
+  
+  
+

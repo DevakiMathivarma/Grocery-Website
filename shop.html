@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery</title>
+    <link rel="icon" type="image/png" href="assets/images/homepage-images/fav1.png">
     <link rel="stylesheet" href="assets/css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,23 +83,25 @@
             <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
         </div>
     </header>
-    <nav class="main-menu">
-        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="fruits.html">Fruits</a>
-        <a href="vegetable.html">Vegetables</a>
-        <div class="dropdown">
-            <a href="about-us.html">About us </a>
-            <div class="dropdown-list">
-                <a href="contact.us.html">Contact Us</a>
-                <a href="faq.html">FAQ</a>
+    <header class="main-menu-navigation">
+        <nav class="main-menu">
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <button class="browse-btn" id="browse"><i class="fas fa-bars"></i> Browse All Categories</button>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="fruits.html">Fruits</a>
+            <a href="vegetable.html">Vegetables</a>
+            <div class="dropdown">
+                <a href="about-us.html">About us </a>
+                <div class="dropdown-list">
+                    <a href="contact.us.html">Contact Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
             </div>
-        </div>
-        <a href="blog.html">Blogs</a>
-        <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
-    </nav>
+            <a href="blog.html">Blogs</a>
+            <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
+        </nav>
+    </header>
 
     <!-- end navbar section -->
     <!-- banner section -->
@@ -146,13 +149,26 @@
                 </div>
             </div>
             <!-- Price Filter -->
-            <div class="price-filter">
+            <!-- <div class="price-filter">
                 <h4>Price</h4>
                 <label>₹ <span id="min-price">299</span> - ₹ <span id="max-price">699</span></label><br>
                 <input type="range" id="price-min" min="100" max="1000" value="399" step="1"><br>
                 <label>₹ <span id="min-price">699</span> - ₹ <span id="max-price">899</span></label><br>
                 <input type="range" id="price-max" min="100" max="1000" value="899" step="1">
+            </div> -->
+
+            <div class="price-filter">
+                <h4>Price</h4>
+
+                <!-- First Label -->
+                <label>₹ <span id="min-price">299</span> - ₹ <span id="max-price">699</span></label><br>
+                <input type="range" id="price-min" min="100" max="1000" value="399" step="1"><br>
+
+                <!-- Second Label -->
+                <label>₹ <span id="min-price">699</span> - ₹ <span id="max-price">899</span></label><br>
+                <input type="range" id="price-max" min="100" max="1000" value="899" step="1">
             </div>
+
 
             <!-- Star Rating Filter -->
             <div class="star-filter">
@@ -185,13 +201,17 @@
                 <label><input type="checkbox" class="availability-checkbox" value="Out Of Stock"> Out Of Stock</label>
             </div>
 
-            <div class="submit-btn">
+            <!-- <div class="submit-btn">
                 <button>Submit</button>
+            </div> -->
+
+            <div class="submit-btn">
+                <button>Apply Filters</button>
             </div>
         </div>
 
         <div class="color">
-            <!-- <div class="featured-product-items"> -->
+         
             <main class="product-grid" id="product-grid">
 
             </main>
@@ -200,8 +220,6 @@
                 <span id="page-info">Page 1</span>
                 <button id="next-page"><i class='bx bx-chevron-right'></i></button>
             </div>
-
-            <!-- </div> -->
         </div>
     </section>
     <!-- key-features -->
@@ -293,7 +311,7 @@
     </footer>
 
     <script src="assets/js/shop.js">
-       
+
     </script>
 </body>
 

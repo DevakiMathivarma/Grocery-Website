@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
    }
 });
 function updateCartCount() {
-   const count = cart.reduce((sum, item) => sum + item.count, 0);
-   document.getElementById("cart-count").innerText = count;
+    // const count = cart.reduce((sum, item) => sum + item.count, 0);
+    document.getElementById("cart-count").innerText = cart.length;
 }
 document.getElementById('userIcon').addEventListener('click', function() {
 window.location.href = 'about.html';
@@ -51,3 +51,7 @@ document.getElementById("categorySelect").addEventListener("change", function ()
     const selectedPage = this.value;
     window.location.href = selectedPage; // Redirect to the selected page
 });
+
+document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });

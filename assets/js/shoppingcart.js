@@ -20,10 +20,13 @@ cart.forEach((item, index) => {
     row.innerHTML = `
 <td><img src="${item.image}" style="width:70px;",display:"inline-block;"><br>${item.name}<br><small >${item.weight}</small></td>
 <td>₹${price.toFixed(2)}</td>
+
 <td class="quantity">
-<button class="quantity1" onclick="updateQuantity(${index}, -1)">-</button> 
-${item.count} 
-<button class="quantity2"onclick="updateQuantity(${index}, 1)">+</button>
+  <div class="quantity-wrapper">
+    <button class="quantity1" onclick="updateQuantity(${index}, -1)">-</button> 
+    <span class="quantity-count">${item.count}</span>
+    <button class="quantity2" onclick="updateQuantity(${index}, 1)">+</button>
+  </div>
 </td>
 <td>₹${subtotal.toFixed(2)}</td>
 `;
@@ -101,10 +104,24 @@ form.addEventListener("submit", (e) => {
         }
     });
 
+    const thankYouDiv = document.getElementById("thankYouMessage");
+
     if (!valid) {
         e.preventDefault();
+        thankYouDiv.style.display = "none";
+    } else {
+        e.preventDefault(); // Prevent actual submission for now
+        thankYouDiv.style.display = "block";
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+            thankYouDiv.style.display = "none";
+        }, 3000);
+
+        form.reset(); // Optional: Reset form fields
     }
 });
+
 
 
 // let checkoutbtn = document.querySelector(".checkout-btn")
@@ -270,3 +287,6 @@ document.getElementById("categorySelect").addEventListener("change", function ()
     const selectedPage = this.value;
     window.location.href = selectedPage; // Redirect to the selected page
 });
+document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });

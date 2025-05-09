@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grocery</title>
+    <link rel="icon" type="image/png" href="assets/images/homepage-images/fav1.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +20,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+.main-menu-navigation{
+  position: sticky;
+  top: 0;
+  width: 100%; 
+  z-index: 1000;
+}
 .navigation_one {
     display: flex;
     /* max-width: 1200px; */
@@ -804,10 +810,11 @@ iframe{
         <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
     </div>
 </header>
+<header class="main-menu-navigation">
 <nav class="main-menu">
     <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 
-    <button class="browse-btn"><i class="fas fa-bars"></i> Browse All Categories</button>
+    <button class="browse-btn" id="browse"><i class="fas fa-bars"></i> Browse All Categories</button>
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="fruits.html">Fruits</a>
@@ -823,7 +830,7 @@ iframe{
     <a href="blog.html">Blogs</a>
     <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
 </nav>
-
+</header>
 <!-- navbar end -->
     <div class="form-wrapper">
         <form id="grocery-contact-form">
@@ -1075,9 +1082,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 function updateCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.count, 0);
-    document.getElementById("cart-count").innerText = count;
-}
+            // const count = cart.reduce((sum, item) => sum + item.count, 0);
+            document.getElementById("cart-count").innerText = cart.length;
+        }
 document.getElementById("cart-icon").addEventListener("click", function () {
     window.location.href = "shoppingcart.html";
 });

@@ -7,6 +7,11 @@ let quantitycount = 1;
 document.addEventListener("DOMContentLoaded", () => {
     const product = JSON.parse(localStorage.getItem("selectedProduct"));
     const section = document.querySelector(".product-details");
+let cart = JSON.parse(localStorage.getItem('cart')) || []
+const itemincart = cart.find(item=> item.name === product.name);
+if (itemincart){
+    quantitycount = itemincart.count;
+}
 
     if (product && section) {
         currentProductName = product.name;
@@ -118,8 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.count, 0);
-            document.getElementById("cart-count").innerText = count;
+            // const count = cart.reduce((sum, item) => sum + item.count, 0);
+            document.getElementById("cart-count").innerText = cart.length;
         }
     } else {
         section.innerHTML = "<p>Product not found in localStorage.</p>";
@@ -209,3 +214,6 @@ document.getElementById("categorySelect").addEventListener("change", function ()
     const selectedPage = this.value;
     window.location.href = selectedPage; // Redirect to the selected page
 });
+document.getElementById('browse').addEventListener('click', function() {
+    window.location.href = 'shop.html';
+    });

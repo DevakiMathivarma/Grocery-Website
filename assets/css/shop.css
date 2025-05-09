@@ -4,6 +4,15 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
+  .main-menu-navigation{
+    position: sticky;
+    top: 0;
+    width: 100%; 
+    z-index: 1000;
+  }
+  .hidden-card {
+    display: none !important;
+  }
   .navigation_one {
     display: flex;
     /* max-width: 1200px; */
