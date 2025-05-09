@@ -355,7 +355,7 @@ i {
 
   /* Align pill to center within td */
 .quantity {
-    /* text-align: center; */
+    text-align: center;
     vertical-align: middle;
     padding: 5px;
   }
@@ -382,7 +382,7 @@ i {
     font-size: 20px;
     color: #007a5a;
     cursor: pointer;
-    padding: 7px 9px;
+    padding: 7px 12px;
     height: 100%;
   }
   
@@ -407,7 +407,7 @@ i {
 .summary-box {
     flex: 1;
     width: 30%;
-    height: 500px;
+    height: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -1133,6 +1133,39 @@ footer .twitter i {
         padding-left:5px;
        max-width: 400px;
     }
+    .quantity-wrapper {
+       
+        width: 50px;
+        height: 20px;
+        margin: auto; /* Center horizontally */
+      }
+      .quantity1,
+  .quantity2 {
+    background: none;
+    border: none;
+    font-size: 10px;
+    color: #007a5a;
+    cursor: pointer;
+    padding: 3px 5px;
+    height: 100%;
+  }
+  
+  .quantity1:hover,
+  .quantity2:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* Count in the middle */
+  .quantity-count {
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
 }
 
 @media(max-width: 426px) {
@@ -1169,7 +1202,8 @@ footer .twitter i {
 
     .cart-table th,
     .cart-table td {
-        padding: 10px;
+        padding: 8px;
+        font-size: 12px;
     }
     .payment-method{
         padding-left:5px;
