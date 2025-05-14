@@ -62,6 +62,7 @@ document.getElementById("order-track-btn").addEventListener("click", function ()
 //     document.getElementById("cart-count").innerText = count;
 // }
    function updateCartCount() {
+     let cart = JSON.parse(localStorage.getItem("cart")) || [];
             const count = cart.reduce((sum, item) => sum + item.count, 0);
              document.getElementById("cart-count").innerText = count;
             // document.getElementById("cart-count").innerText = cart.length;
