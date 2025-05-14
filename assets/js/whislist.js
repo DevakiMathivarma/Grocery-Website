@@ -61,12 +61,18 @@ document.getElementById("order-track-btn").addEventListener("click", function ()
 //     const count = cart.reduce((sum, item) => sum + item.count, 0);
 //     document.getElementById("cart-count").innerText = count;
 // }
+   function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.count, 0);
+             document.getElementById("cart-count").innerText = count;
+            // document.getElementById("cart-count").innerText = cart.length;
+        }
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    // const count = cart.reduce((sum, item) => sum + item.count, 0);
-    document.getElementById("cart-count").innerText = cart.length;
-}
+// function updateCartCount() {
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     // const count = cart.reduce((sum, item) => sum + item.count, 0);
+//     document.getElementById("cart-count").innerText = cart.length;
+// }
+
 document.getElementById('userIcon').addEventListener('click', function () {
     window.location.href = 'about.html';
 });

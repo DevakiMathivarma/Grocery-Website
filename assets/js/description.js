@@ -122,9 +122,14 @@ if (itemincart){
             });
         });
 
-        function updateCartCount() {
-            // const count = cart.reduce((sum, item) => sum + item.count, 0);
-            document.getElementById("cart-count").innerText = cart.length;
+        // function updateCartCount() {
+        //     // const count = cart.reduce((sum, item) => sum + item.count, 0);
+        //     document.getElementById("cart-count").innerText = cart.length;
+        // }
+           function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.count, 0);
+             document.getElementById("cart-count").innerText = count;
+            // document.getElementById("cart-count").innerText = cart.length;
         }
     } else {
         section.innerHTML = "<p>Product not found in localStorage.</p>";

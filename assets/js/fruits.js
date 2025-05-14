@@ -1,15 +1,20 @@
 let currentPage = 1;
-        const itemsPerPage = 10;
+        const itemsPerPage = 9;
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
             if (savedCart) {
                 cart = savedCart;
                 updateCartCount();
             }
-            function updateCartCount() {
-                // const count = cart.reduce((sum, item) => sum + item.count, 0);
-                document.getElementById("cart-count").innerText = cart.length;
-            }
+            // function updateCartCount() {
+            //     // const count = cart.reduce((sum, item) => sum + item.count, 0);
+            //     document.getElementById("cart-count").innerText = cart.length;
+            // }
+               function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.count, 0);
+             document.getElementById("cart-count").innerText = count;
+            // document.getElementById("cart-count").innerText = cart.length;
+        }
 
         // Safe parse to avoid crashing if productList is undefined
         let productList = [];

@@ -17,10 +17,17 @@ if (savedCart) {
     cart = savedCart;
     updateCartCount();
 }
-function updateCartCount() {
-    // const count = cart.reduce((sum, item) => sum + item.count, 0);
-    document.getElementById("cart-count").innerText = cart.length;
-}
+// function updateCartCount() {
+//     // const count = cart.reduce((sum, item) => sum + item.count, 0);
+//     document.getElementById("cart-count").innerText = cart.length;
+// }
+
+ function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.count, 0);
+             document.getElementById("cart-count").innerText = count;
+            // document.getElementById("cart-count").innerText = cart.length;
+        }
+
 const productGrid = document.getElementById("product-grid");
 document.getElementById("prev-page").addEventListener("click", () => {
     if (currentPage > 1) {

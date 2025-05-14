@@ -39,8 +39,9 @@ let cart = [];
         });
 
         function updateCartCount() {
-            // const count = cart.reduce((sum, item) => sum + item.count, 0);
-            document.getElementById("cart-count").innerText = cart.length;
+            const count = cart.reduce((sum, item) => sum + item.count, 0);
+             document.getElementById("cart-count").innerText = count;
+            // document.getElementById("cart-count").innerText = cart.length;
         }
 
         function renderCart() {
