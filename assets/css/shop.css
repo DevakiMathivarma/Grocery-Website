@@ -257,6 +257,7 @@
   .featured-product-items{
     margin-top: 20px;
     padding-bottom: 20px;
+    cursor: pointer;
   }
   
   .featured-product-items-list{

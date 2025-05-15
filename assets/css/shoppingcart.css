@@ -250,6 +250,21 @@ i {
     background-color: #ffce56;
     text-align: left;
 }
+.x-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  padding-right: 5px;
+  margin-right: 2px;
+  color: #e74c3c;         /* red tone for delete/close */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.x-btn:hover {
+  color: #c0392b;          /* darker red on hover */
+  transform: scale(1.2);   /* slightly enlarge on hover */
+}
 
 .cart-table th,
 .cart-table td {

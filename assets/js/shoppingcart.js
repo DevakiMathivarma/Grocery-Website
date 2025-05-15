@@ -18,6 +18,7 @@ cart.forEach((item, index) => {
 
     const row = document.createElement('tr');
     row.innerHTML = `
+    <td><button class="x-btn" onclick="removeRow(this)"><i class="fas fa-xmark"></i></button></td>
 <td><img src="${item.image}" style="width:70px;",display:"inline-block;"><br>${item.name}<br><small >${item.weight}</small></td>
 <td>₹${price.toFixed(2)}</td>
 
@@ -290,3 +291,11 @@ document.getElementById("categorySelect").addEventListener("change", function ()
 document.getElementById('browse').addEventListener('click', function() {
     window.location.href = 'shop.html';
     });
+
+    function removeRow(btn) {
+  const row = btn.closest("tr");
+  row.remove();
+  
+  // Optional: update totals or storage here
+  updateCartTotal();
+}

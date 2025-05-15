@@ -18,7 +18,7 @@ if (itemincart){
         section.innerHTML = `
         <div class="product-details-column">
             <div class="product-details-left-column">
-                <img src="${product.image}" alt="${product.name}" style="margin-top:90px">
+                <img src="${product.image}" alt="${product.name}">
             </div>
             <div class="product-details-right-column">
                 <p class="category">${product.category}</p>

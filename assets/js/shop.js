@@ -62,7 +62,7 @@ function renderProducts(products) {
         <div><h3>${product.discount}</h3></div>
                     <div>        <button class="wishlist-btn" data-product='${JSON.stringify(product)}'><i class="far fa-heart"></i></button>
     </div> </div>
-    <div class="featured-product-items-list-image">
+    <div class="featured-product-items-list-image add-to-cart" >
         <img src="${product.image}">
     </div>
     <div class="featured-product-text">
@@ -96,6 +96,8 @@ function renderProducts(products) {
             // Redirect to the description page
             window.location.href = "description.html";
         });
+
+   
 
         // Append the card to the product grid
         productGrid.appendChild(card);
@@ -247,6 +249,9 @@ document.getElementById("categorySelect").addEventListener("change", function ()
 document.getElementById('browse').addEventListener('click', function() {
     window.location.href = 'shop.html';
     });
+    // document.getElementById('imagedescription').addEventListener('click', function() {
+    // window.location.href = 'description.html';
+    // });
   
 
 document.addEventListener("DOMContentLoaded", () => {

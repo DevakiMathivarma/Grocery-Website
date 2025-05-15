@@ -154,11 +154,17 @@
             <!-- Price Filter -->
             <div class="price-filter">
                 <h4>Price</h4>
-                <label>₹ <span id="min-price">399</span> - ₹ <span id="max-price">699</span></label><br>
+
+                <!-- First Label -->
+                <label>₹ <span id="min-price">299</span> - ₹ <span id="max-price">699</span></label><br>
                 <input type="range" id="price-min" min="100" max="1000" value="399" step="1"><br>
+
+                <!-- Second Label -->
                 <label>₹ <span id="min-price">699</span> - ₹ <span id="max-price">899</span></label><br>
                 <input type="range" id="price-max" min="100" max="1000" value="899" step="1">
             </div>
+
+
 
             <!-- Star Rating Filter -->
             <div class="star-filter">
@@ -299,7 +305,7 @@
     </footer>
     <script>
         let currentPage = 1;
-        const itemsPerPage = 10;
+        const itemsPerPage = 9;
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -360,8 +366,8 @@
                             <div><h3>${product.discount}</h3></div>
                             <div>        <button class="wishlist-btn" data-product='${JSON.stringify(product)}'><i class="far fa-heart"></i></button>
                         </div> </div>
-                        <div class="featured-product-items-list-image">
-                            <img src="${product.image}">
+                        <div class="featured-product-items-list-image add-to-cart"">
+                            <img src="${product.image}" >
                         </div>
                         <div class="featured-product-text">
                             <div><p>${product.category}</p></div>
@@ -416,41 +422,58 @@
 
         renderProducts(productList);
 
+        // Price range input elements
+const priceMinInput = document.getElementById("price-min");
+const priceMaxInput = document.getElementById("price-max");
+
+// Display span elements (same ID used in both labels)
+const minPriceSpan = document.querySelectorAll("#min-price");
+const maxPriceSpan = document.querySelectorAll("#max-price");
+
+// Function to update all matching span elements
+function updatePriceDisplay() {
+    const min = parseInt(priceMinInput.value);
+    const max = parseInt(priceMaxInput.value);
+
+    minPriceSpan.forEach(span => span.textContent = min);
+    maxPriceSpan.forEach(span => span.textContent = max);
+}
+
+// Event listeners for live update while dragging
+priceMinInput.addEventListener("input", updatePriceDisplay);
+priceMaxInput.addEventListener("input", updatePriceDisplay);
+
+// Initial display setup
+updatePriceDisplay()
+
         document.querySelector('.submit-btn button').addEventListener('click', () => {
-            const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
-            const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
-            const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
-            const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
+    const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
+    const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
+    const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
+    const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
 
-            const minPrice = parseFloat(document.getElementById("price-min").value);
-            const maxPrice = parseFloat(document.getElementById("price-max").value);
+    const minPrice = parseFloat(priceMinInput.value);
+    const maxPrice = parseFloat(priceMaxInput.value);
 
+    const brandMap = {
+        "Fresh Harvest": "Vegetables",
+        "Farm Fresh": "Vegetables",
+        "Nature’s products": "Fruits",
+        "Frozen Foods": "Dairy",
+        "Good Grains": "Spices"
+    };
 
+    const filtered = productList.filter(product => {
+        const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => brandMap[brand] === product.category);
+        const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
+        const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
+        const priceMatch = product.price >= minPrice && product.price <= maxPrice;
 
-            const brandMap = {
-                "Fresh Harvest": "Vegetables",
-                "Farm Fresh": "Vegetables",
-                "Nature’s products": "Fruits",
-                "Frozen Foods": "Dairy",
-                "Good Grains": "Spices"
-            };
+        console.log({ product, categoryMatch, brandMatch, availabilityMatch, ratingMatch, priceMatch });
 
-            const filtered = productList.filter(product => {
-                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
-
-
-                const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => {
-                    return brandMap[brand] === product.category;
-                });
-                const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
-                const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
-                const priceMatch = product.price >= minPrice && product.price <= maxPrice;
-
-                console.log({ product, categoryMatch, brandMatch, availabilityMatch, ratingMatch, priceMatch });
-
-                return categoryMatch && brandMatch && availabilityMatch && ratingMatch && priceMatch;
-            });
-
+        return categoryMatch && brandMatch && availabilityMatch && ratingMatch && priceMatch;
+    });
             console.log(filtered)
             currentPage = 1; // Add this before renderProducts(filtered);
             renderProducts(filtered);
@@ -509,6 +532,9 @@ dropdown.classList.toggle("active");
 document.getElementById('userIcon').addEventListener('click', function() {
     window.location.href = 'about.html';
   });
+    //   document.getElementById('imagedescription').addEventListener('click', function() {
+    // window.location.href = 'description.html';
+    // });
     </script>
 </body>
 

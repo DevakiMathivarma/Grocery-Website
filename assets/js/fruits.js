@@ -61,7 +61,7 @@ let currentPage = 1;
                             <div>        <button class="wishlist-btn" data-product='${JSON.stringify(product)}'><i class="far fa-heart"></i></button>
 </div>
                         </div>
-                        <div class="featured-product-items-list-image">
+                        <div class="featured-product-items-list-image add-to-cart"" >
                             <img src="${product.image}">
                         </div>
                         <div class="featured-product-text">
@@ -135,42 +135,58 @@ let currentPage = 1;
 
 
         renderProducts(productList);
+        // Price range input elements
+const priceMinInput = document.getElementById("price-min");
+const priceMaxInput = document.getElementById("price-max");
 
-        document.querySelector('.submit-btn button').addEventListener('click', () => {
-            const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
-            const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
-            const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
-            const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
+// Display span elements (same ID used in both labels)
+const minPriceSpan = document.querySelectorAll("#min-price");
+const maxPriceSpan = document.querySelectorAll("#max-price");
 
-            const minPrice = parseFloat(document.getElementById("price-min").value);
-            const maxPrice = parseFloat(document.getElementById("price-max").value);
+// Function to update all matching span elements
+function updatePriceDisplay() {
+    const min = parseInt(priceMinInput.value);
+    const max = parseInt(priceMaxInput.value);
 
+    minPriceSpan.forEach(span => span.textContent = min);
+    maxPriceSpan.forEach(span => span.textContent = max);
+}
 
+// Event listeners for live update while dragging
+priceMinInput.addEventListener("input", updatePriceDisplay);
+priceMaxInput.addEventListener("input", updatePriceDisplay);
 
-            const brandMap = {
-                "Fresh Harvest": "Vegetables",
-                "Farm Fresh": "Vegetables",
-                "Nature’s products": "Fruits",
-                "Frozen Foods": "Dairy",
-                "Good Grains": "Spices"
-            };
+// Initial display setup
+updatePriceDisplay()
 
-            const filtered = productList.filter(product => {
-                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+       document.querySelector('.submit-btn button').addEventListener('click', () => {
+    const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
+    const selectedCategories = Array.from(document.querySelectorAll('#category-selection input:checked')).map(cb => cb.nextElementSibling.textContent.trim());
+    const selectedRatings = Array.from(document.querySelectorAll('.star-checkbox:checked')).map(cb => parseFloat(cb.value));
+    const selectedAvailability = Array.from(document.querySelectorAll('.availability-checkbox:checked')).map(cb => cb.value);
 
+    const minPrice = parseFloat(priceMinInput.value);
+    const maxPrice = parseFloat(priceMaxInput.value);
 
-                const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => {
-                    return brandMap[brand] === product.category;
-                });
-                const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
-                const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
-                const priceMatch = product.price >= minPrice && product.price <= maxPrice;
+    const brandMap = {
+        "Fresh Harvest": "Vegetables",
+        "Farm Fresh": "Vegetables",
+        "Nature’s products": "Fruits",
+        "Frozen Foods": "Dairy",
+        "Good Grains": "Spices"
+    };
 
-                console.log({ product, categoryMatch, brandMatch, availabilityMatch, ratingMatch, priceMatch });
+    const filtered = productList.filter(product => {
+        const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(brand => brandMap[brand] === product.category);
+        const availabilityMatch = selectedAvailability.length === 0 || selectedAvailability.includes(product.availability || "In Stock");
+        const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => product.rating <= r);
+        const priceMatch = product.price >= minPrice && product.price <= maxPrice;
 
-                return categoryMatch && brandMatch && availabilityMatch && ratingMatch && priceMatch;
-            });
+        console.log({ product, categoryMatch, brandMatch, availabilityMatch, ratingMatch, priceMatch });
 
+        return categoryMatch && brandMatch && availabilityMatch && ratingMatch && priceMatch;
+    });
             console.log(filtered)
             currentPage = 1; // Add this before renderProducts(filtered);
             renderProducts(filtered);
@@ -217,3 +233,6 @@ document.getElementById('userIcon').addEventListener('click', function() {
 document.getElementById('browse').addEventListener('click', function() {
     window.location.href = 'shop.html';
     });
+    //   document.getElementById('imagedescription').addEventListener('click', function() {
+    // window.location.href = 'description.html';
+    // });
