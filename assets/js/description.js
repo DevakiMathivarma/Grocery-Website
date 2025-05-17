@@ -85,23 +85,22 @@ if (itemincart){
                 const price = product.price;
                 const image = product.image;
 
-
-                const existing = cart.find(item => item.name === name);
-                if (existing) {
-                    existing.count = quantitycount;
-                } else {
-                    cart.push({ name, price, weight, image, count: quantitycount == 0 ? 1 : quantitycount });
+                    buycart=[];
+                    buycart.push({ name, price, weight, image, count: quantitycount == 0 ? 1 : quantitycount });
 
 
-                }
+           
 
-                localStorage.setItem("cart", JSON.stringify(cart));
+                localStorage.setItem("buycart", JSON.stringify(buycart));
                 updateCartCount();
-                window.location.href = "shoppingcart.html";
+                window.location.href = "buynowcart.html";
             });
         });
         document.querySelectorAll(".add-cart").forEach(button => {
             button.addEventListener("click", () => {
+                    const quantityValue = document.getElementById('quantity-value');
+
+    let latestquantity = parseInt(quantityValue.textContent) || 1;
                 const name = product.name;
                 const weight = product.weight
                 const price = product.price;
@@ -109,8 +108,9 @@ if (itemincart){
 
 
                 const existing = cart.find(item => item.name === name);
+                alert("Added to cart!..");
                 if (existing) {
-                    existing.count = quantitycount;
+                    existing.count = quantitycount+latestquantity;
                 } else {
                     cart.push({ name, price, weight, image, count: quantitycount == 0 ? 1 : quantitycount });
 
@@ -121,6 +121,7 @@ if (itemincart){
                 updateCartCount();
             });
         });
+
 
         // function updateCartCount() {
         //     // const count = cart.reduce((sum, item) => sum + item.count, 0);

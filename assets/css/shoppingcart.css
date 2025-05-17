@@ -698,7 +698,7 @@ button.submit-btn:hover {
     border: 1px solid grey;
     padding: 30px;
     border-radius: 20px;
-    width: 90%;
+    width: 60%;
     margin: auto;
 }
 
@@ -712,7 +712,9 @@ button.submit-btn:hover {
     justify-content: space-between;
     padding: 20px;
 }
-
+.Total p{
+    font-weight: bolder;
+}
 .thank-you-box {
     display: none;
     position: fixed; /* Keep it in view even on scroll */
@@ -1182,6 +1184,16 @@ footer .twitter i {
     border-right: 1px solid #ccc;
   }
 }
+.x-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  padding-right: 5px;
+  margin-right: 2px;
+  color: #e74c3c;         /* red tone for delete/close */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
 
 @media(max-width: 426px) {
     .newsletter button {
@@ -1198,6 +1210,11 @@ footer .twitter i {
     .hero h1 {
         font-size: 1.5rem;}
 
+        .cart-table th,
+    .cart-table td {
+        padding: 9px;
+        font-size: 13px;
+    }
 }
 
 @media(max-width:376px) {

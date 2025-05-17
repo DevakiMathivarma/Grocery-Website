@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
         return;
     }
 
-    alert('Form submitted successfully!');
+    alert('changes updated successfully!');
     form.reset();
 });
 
@@ -320,7 +320,7 @@ updateBtn.addEventListener("click", (e) => {
         // Remove red borders
         [currentPwd, newPwd, confirmPwd].forEach(clearInvalid);
     } else {
-        alert("Please fix the errors before submitting.");
+        alert("Enter your password for updating.");
     }
 });
 

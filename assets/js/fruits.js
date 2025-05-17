@@ -1,5 +1,6 @@
 let currentPage = 1;
         const itemsPerPage = 9;
+        let quantitycount = 1;
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
             if (savedCart) {
@@ -77,23 +78,53 @@ let currentPage = 1;
                                 <span>&#8377 ${product.originalPrice}</span>
                                 <small>₹ ${product.price}</small>
                             </div>
-                            <div><button class="add-to-cart" data-id="${product.id}"><i class='bx bx-shopping-bag'></i>ADD</button></div>
+                            <div><button class="add-product-cart" data-id="${product.id}"><i class='bx bx-shopping-bag'></i>ADD</button></div>
                         </div>
                     </div>`;
-                // Ensure the button exists after the card is created
-                const addToCartButton = card.querySelector('.add-to-cart');
+          // Ensure the button exists after the card is created
+        const addToCartButton = card.querySelector('.add-product-cart');
 
-                // Add the event listener inside the loop so the correct `product` is passed
-                addToCartButton.addEventListener("click", () => {
-                    // Use console.log to ensure the correct product object is passed
-                    console.log("Product being added:", product);
+        // Add the event listener inside the loop so the correct `product` is passed
+        addToCartButton.addEventListener("click", () => {
+            cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemincart = cart.find(item => item.name === product.name);
+               alert('Added to cart!');
+            if (itemincart) {
+                quantitycount = itemincart.count;
+               
+            }
+            // const quantityInput = card.querySelector('.quantity-input');
+            // const quantitycount = parseInt(quantityInput.value) || 1; // Default to 1 if not a number
+            const name = product.name;
+            const weight = product.weight
+            const price = product.price;
+            const image = product.image;
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.count = quantitycount+1;
 
-                    // Store the selected product in localStorage
-                    localStorage.setItem("selectedProduct", JSON.stringify(product));
+            } else {
+                cart.push({ name, price, weight, image, count: quantitycount == 0 ? 1 : quantitycount });
+            }
 
-                    // Redirect to the description page
-                    window.location.href = "description.html";
-                });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+        });
+
+        //  Ensure the button exists after the card is created
+        const addCartButton = card.querySelector('.add-to-cart');
+
+        // Add the event listener inside the loop so the correct `product` is passed
+        addCartButton.addEventListener("click", () => {
+            // Use console.log to ensure the correct product object is passed
+            console.log("Product being added:", product);
+
+            // Store the selected product in localStorage
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+            // Redirect to the description page
+            window.location.href = "description.html";
+        });
                 productGrid.appendChild(card);
             });
             document.addEventListener('click', function (e) {

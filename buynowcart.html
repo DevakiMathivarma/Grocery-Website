@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" type="image/png" href="assets/images/homepage-images/fav1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/shoppingcart.css">
+</head>
+
+<body>
+    <header>
+        <div class="navigation_one">
+            <div>
+                <p>Call us : +91996576569</p>
+            </div>
+            <div class="sign-up">
+                <h4>Sign Up and Get 50% OFF for first order.</h4>
+                <a href="#">Sign up now</a>
+            </div>
+            <div class="navigation_one_tracking">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">Deliver to<span>411017</span></a>
+                </div>
+                <span class="line">|</span>
+                <div>
+                    <i class="fa fa-truck"></i>
+                    <a href="#">Track your order</a>
+                </div>
+                <span class="line">|</span>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">All Offers</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header class="navbar">
+        <div class="logo">
+            <img src="">
+        </div>
+
+        <div class="location">
+
+            <label class="location-name">Location</label><br>
+            <!-- <i class="fa fa-truck"></i> -->
+            <select>
+
+                <option>Tirunelveli,Tamilnadu</option>
+                <option>Trichy,Tamilnadu</option>
+                <option>Kanjipuram,Tamilnadu</option>
+                <option>Cuddalur,Tamilnadu</option>
+            </select>
+
+        </div>
+        <div class="search-container">
+            <select class="category-select" id="categorySelect">
+                <option value="shop.html">All Categories</option>
+                <option value="fruits.html">Fruits</option>
+                <option value="vegetable.html">Vegetables</option>
+                <option>Beverages</option>
+            </select>
+            <input type="text" placeholder="Search for products">
+            <button><i class='bx bx-search'></i></i></button>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn" id="wishlist-icon"><i class="far fa-heart"></i></button>
+            <!-- <button class="icon-btn" id="cart-icon"><i class='bx bx-shopping-bag'></i>
+                <span id="cart-count">0</span> -->
+
+            </button>
+            <button class="icon-btn"><i class="fas fa-user" id="userIcon"></i></button>
+        </div>
+    </header>
+    <header class="main-menu-navigation">
+    <nav class="main-menu">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        <button class="browse-btn" id="browse"><i class="fas fa-bars"></i> Browse All Categories</button>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetable.html">Vegetables</a>
+        <div class="dropdown">
+            <a href="about-us.html">About us </a>
+            <div class="dropdown-list">
+                <a href="contact.us.html">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <a href="blog.html">Blogs</a>
+        <span class="recently-view">Recently view <i class="fas fa-chevron-down"></i></span>
+    </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Shopping cart</h1>
+    </section>
+
+    <!-- Shopping Cart Table -->
+    <section class="cart-section">
+        <div class="cart-section-container">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th class="quan">Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <section class="billing-details">
+                <div class="billing-details-form">
+                    <form id="billingForm" novalidate>
+                        <h3>Billing Details</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <sup>*</sup></label>
+                                <input type="text" id="firstName" required>
+                                <span class="error-msg" id="firstNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <sup>*</sup></label>
+                                <input type="text" id="lastName" required>
+                                <span class="error-msg" id="lastNameError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Company Name (OPTIONAL)</label>
+                            <input type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Country <sup>*</sup></label>
+                            <input type="text" id="country" required>
+                            <span class="error-msg" id="countryError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Street Address <sup>*</sup></label>
+                            <input type="text" id="street" required>
+                            <span class="error-msg" id="streetError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>City <sup>*</sup></label>
+                            <input type="text" id="city" required>
+                            <span class="error-msg" id="cityError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>State <sup>*</sup></label>
+                            <input type="text" id="state" required>
+                            <span class="error-msg" id="stateError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Zip Code <sup>*</sup></label>
+                            <input type="text" id="zip" required>
+                            <span class="error-msg" id="zipError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone <sup>*</sup></label>
+                            <input type="text" id="phone" required>
+                            <span class="error-msg" id="phoneError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email <sup>*</sup></label>
+                            <input type="email" id="email" required>
+                            <span class="error-msg" id="emailError"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Delivery Address <sup>*</sup></label>
+                                <input type="text" id="delivery" required>
+                                <span class="error-msg" id="deliveryError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Use a different billing address</label>
+                                <input type="text">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">submit</button>
+                    </form>
+                </div>
+            </section>
+            <div id="thankYouMessage" class="thank-you-box">
+                Thank you, your details are added!
+            </div>
+
+            <!-- paymentmethod -->
+
+            <div class="payment-method">
+                <h2>Select Payment Method</h2>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="assets/images/homepage-images/paypal.PNG">
+                    PayPal
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="visa-icon.png">
+                    ************7870
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="gpay-icon.png">
+                    Google Pay
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="cod-icon.png">
+                    Cash on Delivery
+                </label>
+
+                <div class="card-option">
+                    <label class="payment-option">
+                        <input type="radio" name="payment">
+                        <img src="card-icon.png">
+                        Add New Credit /Debit Card
+                    </label>
+
+                    <form class="card-form">
+                        <label>
+                            Card Holder Name *
+                            <input type="text" required>
+                        </label>
+
+                        <label>
+                            Card Number *
+                            <input type="text" maxlength="16" required>
+                        </label>
+
+                        <div class="card-details">
+                            <label>
+                                Expiry date *
+                                <input type="text" placeholder="MM/YY" maxlength="5" required>
+                            </label>
+
+                            <label>
+                                CVV *
+                                <input type="password" maxlength="3" required>
+                            </label>
+                        </div>
+
+                        <label class="save-card">
+                            <input type="checkbox">
+                            Save card for future payments
+                        </label>
+
+                        <button type="submit">Add Card</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-box">
+                <h3>Order Summary</h3>
+                <p>Items: 9</p>
+                <p>Sub Total: ₹110.00</p>
+                <p>Shipping: ₹20.00</p>
+                <p>Taxes: ₹0.00</p>
+                <p>Coupon Discount: ₹10.00</p>
+                <h4>Total: ₹100.00</h4>
+                <button class="checkout-btn">Proceed to Buy</button>
+            </div>
+        </div>
+
+        <div class="order-details" id="orderDetailsContainer"></div>
+
+        <div class="cart-actions">
+            <a href="#">Clear Shopping Cart</a>
+        </div>
+    </section>
+    <!-- key-features -->
+    <section class="key-features">
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/shipping.PNG">
+            </div>
+            <div>
+                <p>Free Shipping</p>
+                <small>Free shipping for order above ₹500</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/payment.PNG">
+            </div>
+            <div>
+                <p>Flexible Payment</p>
+                <small>Multiple secure payments options</small>
+            </div>
+        </div>
+        <div class="key-features-content">
+            <div>
+                <img src="assets/images/homepage-images/support1.PNG">
+            </div>
+            <div>
+                <p>24 x 7 Support</p>
+                <small>We support online all days</small>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- newsletter section -->
+    <div class="newsletter">
+        <h4>Our Newsletter</h4>
+        <h2>Subscribe to Our Newsletter to Get Updates on our latest offers</h2>
+        <p>Get 25% on your order just by subscribing to newsletter</p>
+        <input type="email" placeholder="Enter Email Address">
+        <button>subscribe</button>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-about">
+            <div class="social-icons">
+                <!-- <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i> -->
+                <span class="youtube"><a href="https://www.youtube.com/"><i
+                            class="fa-brands fa-youtube"></a></i></span><span class="WhatsApp"><a
+                        href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></span><span
+                    class="instagram"><a href="https://www.instagram.com/accounts/login/"><i
+                            class='bx bxl-instagram'></i></a></span><span class="facebook"><a
+                        href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a></span><span
+                    class="twitter"><a href="https://x.com/i/flow/login"><i class='bx bxl-twitter'></i></a></span>
+            </div>
+
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about-us.html">About us</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.us.html">Contact us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div>
+                    <h4>Customer services</h4>
+                    <a href="my-account.html">My Account</a>
+                    <a href="order-tracking.html">Track your Order</a>
+                    <a href="#">Return</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div>
+                    <h4>Our information</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">User Terms & conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div>
+                    <h4>Contact info</h4>
+                    <p>Phone number: 91837369373</p>
+                    <p>Email: mgsh@gmail.com</p>
+                    <p>12.kk street<br>chennai - 627006</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> copyright @ 2025 <span>Grocery Website Design</span>.All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="assets/js/buynowcart.js">
+        
+    </script>
+
+</body>
+
+</html>
